@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4705611347017737682}
   - component: {fileID: 3131551684195184599}
   - component: {fileID: 1403325289941620375}
+  - component: {fileID: 1452045916}
   m_Layer: 0
   m_Name: Store4
   m_TagString: Untagged
@@ -109,6 +110,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.29, y: 2.23}
   m_EdgeRadius: 0
+--- !u!114 &1452045916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270464147095460808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f902eedb30910c346b184514be3022d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
 --- !u!1 &1287235719478013835
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +134,7 @@ GameObject:
   - component: {fileID: 1397388086886259777}
   - component: {fileID: 5504174382032497984}
   - component: {fileID: 6069914920999197906}
+  - component: {fileID: 1524548259}
   m_Layer: 0
   m_Name: Store3
   m_TagString: Untagged
@@ -218,6 +233,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.31, y: 2.26}
   m_EdgeRadius: 0
+--- !u!114 &1524548259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287235719478013835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f902eedb30910c346b184514be3022d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
 --- !u!1 &2472445067010691891
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,6 +257,7 @@ GameObject:
   - component: {fileID: 396135898022591769}
   - component: {fileID: 4748358918013817603}
   - component: {fileID: 5158947212589747870}
+  - component: {fileID: 1943035290}
   m_Layer: 0
   m_Name: Store1
   m_TagString: Untagged
@@ -327,6 +356,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.41, y: 2.37}
   m_EdgeRadius: 0
+--- !u!114 &1943035290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2472445067010691891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f902eedb30910c346b184514be3022d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
 --- !u!1 &2661036913214236300
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +415,7 @@ GameObject:
   - component: {fileID: 8439948793381646489}
   - component: {fileID: 7893941089705969549}
   - component: {fileID: 5901754929054757737}
+  - component: {fileID: 2048770592}
   m_Layer: 0
   m_Name: Store2
   m_TagString: Untagged
@@ -471,6 +514,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.73, y: 2.32}
   m_EdgeRadius: 0
+--- !u!114 &2048770592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879851803915490127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f902eedb30910c346b184514be3022d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
 --- !u!1 &7556810130090406586
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +538,7 @@ GameObject:
   - component: {fileID: 604337916607727790}
   - component: {fileID: 760189149070182025}
   - component: {fileID: 3610939707468406421}
+  - component: {fileID: 1915017586}
   m_Layer: 0
   m_Name: Store5
   m_TagString: Untagged
@@ -580,3 +637,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.27, y: 2.23}
   m_EdgeRadius: 0
+--- !u!114 &1915017586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7556810130090406586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f902eedb30910c346b184514be3022d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
