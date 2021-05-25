@@ -41,6 +41,33 @@ TextureImporter:
   - first:
       213: 8730441947294350928
     second: GEM7
+  - first:
+      213: 7249202871605554998
+    second: backwall1
+  - first:
+      213: -5392189345230742318
+    second: backwall2
+  - first:
+      213: -8408473800176538992
+    second: backwall3
+  - first:
+      213: -7999660797356569806
+    second: backwall4
+  - first:
+      213: 8684029023760931868
+    second: backwall5
+  - first:
+      213: 4613244504323199429
+    second: copperring
+  - first:
+      213: 8669591409842620746
+    second: silverring
+  - first:
+      213: -5845753915520582023
+    second: goldring
+  - first:
+      213: -4110037417526408877
+    second: carpet1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -187,7 +214,7 @@ TextureImporter:
         height: 206
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 42, y: 0, z: 45, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -208,7 +235,7 @@ TextureImporter:
         height: 295
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 131, y: 0, z: 130, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -446,6 +473,195 @@ TextureImporter:
       bones: []
       spriteID: 05e36a8f1b2c82970800000000000000
       internalID: 8730441947294350928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backwall1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 379
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f6ac29a975a9460800000000000000
+      internalID: 7249202871605554998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backwall2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 169
+        width: 379
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc10eb0c581b25b0800000000000000
+      internalID: -5392189345230742318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backwall3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 337
+        width: 379
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a6c45f0a91f4b80800000000000000
+      internalID: -8408473800176538992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backwall4
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 0
+        width: 379
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b81f983ee7bf090800000000000000
+      internalID: -7999660797356569806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backwall5
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 169
+        width: 378
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1cd37c136ed38870800000000000000
+      internalID: 8684029023760931868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: copperring
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 494
+        width: 70
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c115364f69850040800000000000000
+      internalID: 4613244504323199429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silverring
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 424
+        width: 70
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a49827b2473905870800000000000000
+      internalID: 8669591409842620746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goldring
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 350
+        width: 73
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97efb0539c5bfdea0800000000000000
+      internalID: -5845753915520582023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpet1
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 0
+        width: 264
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35946c2aeb636f6c0800000000000000
+      internalID: -4110037417526408877
       vertices: []
       indices: 
       edges: []
