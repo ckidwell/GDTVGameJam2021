@@ -271,8 +271,8 @@ TextureImporter:
       name: GOLD_LCK
       rect:
         serializedVersion: 2
-        x: 479
-        y: 1000
+        x: 910
+        y: 997
         width: 33
         height: 24
       alignment: 0
@@ -292,8 +292,8 @@ TextureImporter:
       name: COPPER_LCK
       rect:
         serializedVersion: 2
-        x: 479
-        y: 973
+        x: 910
+        y: 970
         width: 33
         height: 24
       alignment: 0
@@ -313,8 +313,8 @@ TextureImporter:
       name: SILVER__LCK
       rect:
         serializedVersion: 2
-        x: 479
-        y: 947
+        x: 910
+        y: 944
         width: 33
         height: 24
       alignment: 0
