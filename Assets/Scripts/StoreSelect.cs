@@ -15,15 +15,18 @@ public class StoreSelect : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!camAnim.GetBool("Framed"))
-        {
-            camAnim.SetTrigger(gameObject.name);
-            camAnim.SetBool("Framed", true);
-        }
-        else
-        {
-            camAnim.SetTrigger("BackToDefault");
-            camAnim.SetBool("Framed", false);
-        }
+            //On strip mall view, zoom in on selected store
+            if (!camAnim.GetBool("StoreFramed") && !camAnim.GetBool("LockFramed"))
+            {
+                camAnim.SetTrigger(gameObject.name);
+                camAnim.SetBool("StoreFramed", true);
+            }
+            //If storefront is clicked when not in default view, zoom back out
+            else
+            {
+                camAnim.SetTrigger("BackToDefault");
+                camAnim.SetBool("StoreFramed", false);
+                camAnim.SetBool("LockFramed", false);
+            }
     }
 }
