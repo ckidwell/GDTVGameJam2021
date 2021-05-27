@@ -20,13 +20,11 @@ public class GameController : MonoBehaviour
 
     public void StartNewGame()
     {
-        
         // do whatever is needed to setup a new game sequence
     }
 
     public void GameOver()
     {
-        
         // do what is needed to summarize the end game results 
     }
 
