@@ -9,7 +9,7 @@ public class Pin : MonoBehaviour
     private float yHeightLimit = .15f;
     public bool set = false;
     public int order = 0;
-    private float lockHeight;
+    public float lockHeight;
     
     public delegate void PinSet(int order);
     public static event PinSet OnPinSet;

@@ -7,10 +7,12 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     private MenuController _menuController;
-    
+    public GameObject goldLock;
+    private GameObject currentlock;
     void Start()
     {
         _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
+        currentlock = Instantiate(goldLock);
     }
     
     void Update()
@@ -18,6 +20,7 @@ public class GameController : MonoBehaviour
         
     }
 
+    
     public void StartNewGame()
     {
         // do whatever is needed to setup a new game sequence

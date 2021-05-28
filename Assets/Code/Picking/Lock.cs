@@ -13,6 +13,9 @@ public class Lock : MonoBehaviour
     public List<Pin> pins;
     public bool locked = true;
     
+    public delegate void SendLockPickMessage(string message);
+    public static event SendLockPickMessage OnSendLockPickMessage;
+    
     void Start()
     {
         lockPositions = new List<float>();
@@ -27,6 +30,7 @@ public class Lock : MonoBehaviour
         foreach (var pin in pins)
         {
             pin.order = o++;
+            pin.lockHeight = Random.Range(.1f, .15f);
         }
     }
 
@@ -42,15 +46,35 @@ public class Lock : MonoBehaviour
 
     private void PinSet(int whichPin)
     {
+        //TODO: play pin set sound
+        var resetPins = false;
         foreach (var pin in pins)
         {
+            if (pin.order < whichPin && !pin.set)
+            {
+                resetPins = true;
+                break;
+            }
             if (pin.order == whichPin)
                 pin.set = true;
         }
-
+        if(resetPins)
+            ResetPins();
+        
         if (CheckForUnlock())
         {
+            OnSendLockPickMessage("YOU UNLOCKED IT!");
             Debug.Log("YOU UNLOCKED IT!");
+        } 
+        OnSendLockPickMessage("PIN SET");
+    }
+
+    private void ResetPins()
+    {
+        OnSendLockPickMessage("WRONG ORDER .. LOCK RESET");
+        foreach (var pin in pins)
+        {
+            pin.set = false;
         }
     }
     private bool CheckForUnlock()
