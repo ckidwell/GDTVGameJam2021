@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c963408c17021b547b7cfaad689e1210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!60 &151080206
-PolygonCollider2D:
+--- !u!61 &151080205
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -256,7 +256,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 1.0954608, y: -0.013736993}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -266,15 +266,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 1.0935518, y: -0.07815009}
-      - {x: 1.009224, y: -0.07813369}
-      - {x: 1.0097038, y: -0.16326414}
-      - {x: 1.0619395, y: -0.16257752}
-      - {x: 1.1247443, y: -0.16410615}
-      - {x: 1.124157, y: 0.075753465}
-      - {x: 1.0895466, y: 0.13393557}
+  serializedVersion: 2
+  m_Size: {x: 0.010610819, y: 0.29175818}
+  m_EdgeRadius: 0
 --- !u!1 &790488680
 GameObject:
   m_ObjectHideFlags: 0

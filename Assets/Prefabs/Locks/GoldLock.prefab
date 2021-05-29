@@ -932,6 +932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   set: 0
   order: 0
+  lockHeight: 0
 --- !u!1 &7677940516371543944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   set: 0
   order: 0
+  lockHeight: 0
 --- !u!1 &7677940516419989104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,8 +1252,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7677940516419989104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2735, y: -0.6056, z: 0}
-  m_LocalScale: {x: 1.9151223, y: 0.36068147, z: 1}
+  m_LocalPosition: {x: 0.2735, y: -0.617, z: 0}
+  m_LocalScale: {x: 1.9151223, y: 0.33785033, z: 1}
   m_Children: []
   m_Father: {fileID: 7677940515675836239}
   m_RootOrder: 0
@@ -1800,6 +1802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   set: 0
   order: 0
+  lockHeight: 0
 --- !u!1 &7677940516588742374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,6 +1949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   set: 0
   order: 0
+  lockHeight: 0
 --- !u!1 &7677940516623841007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,3 +2096,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   set: 0
   order: 0
+  lockHeight: 0

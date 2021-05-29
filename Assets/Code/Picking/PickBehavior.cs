@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickBehavior : MonoBehaviour
 {
-    private float moveSpeed = .40f;
+    private float moveSpeed = .30f;
     private Rigidbody2D r2d;
     public delegate void Triggered();
     public static event Triggered OnTriggered;
