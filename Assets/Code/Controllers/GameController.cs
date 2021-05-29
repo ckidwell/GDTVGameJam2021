@@ -8,11 +8,14 @@ public class GameController : MonoBehaviour
 {
     private MenuController _menuController;
     public GameObject goldLock;
+    public GameObject silverLock;
+    public GameObject copperLock;
+    public GameObject doorLock;
     private GameObject currentlock;
     void Start()
     {
         _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
-        currentlock = Instantiate(goldLock);
+        SpawnLockOfType(LockTypes.DOOR);
     }
     
     void Update()
@@ -20,6 +23,26 @@ public class GameController : MonoBehaviour
         
     }
 
+    public void SpawnLockOfType(LockTypes type)
+    {
+        switch (type)
+        {
+            case LockTypes.DOOR:
+                currentlock = Instantiate(doorLock);
+                break;
+            case LockTypes.COPPER:
+                currentlock = Instantiate(copperLock);
+                break;
+            case LockTypes.SILVER:
+                currentlock = Instantiate(silverLock);
+                break;
+            case LockTypes.GOLD:
+                currentlock = Instantiate(goldLock);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(type), type, "Somehow you told me to spawn a lock type that does not exist");
+        }
+    }
     
     public void StartNewGame()
     {

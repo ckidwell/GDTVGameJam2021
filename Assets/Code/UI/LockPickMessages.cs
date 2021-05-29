@@ -37,7 +37,8 @@ public class LockPickMessages : MonoBehaviour
         foreach (var c in message) 
         {
             messageText.text += c;
-            yield return new WaitForSeconds (0.125f);
+            //TODO: typing sound? beeps?
+            yield return new WaitForSeconds (0.025f);
         }
     }
 }
