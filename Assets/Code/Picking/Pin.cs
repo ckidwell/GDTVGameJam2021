@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Pin : MonoBehaviour
 {
+    private SoundController soundController;
     private Vector2 startingPosition;
     private float yHeightLimit = .15f;
     public bool set = false;
@@ -15,6 +16,7 @@ public class Pin : MonoBehaviour
     public static event PinSet OnPinSet;
     void Start()
     {
+        soundController = GameObject.Find("GameController").GetComponent<SoundController>();
         startingPosition = transform.position;
     }
 
@@ -30,7 +32,7 @@ public class Pin : MonoBehaviour
         if(t.position.y >= lockHeight -.01 && t.position.y <= lockHeight +.01)
         {
             set = true;
-            Debug.Log("I just set a pin of order" + order);
+            // Debug.Log("I just set a pin of order" + order);
             OnPinSet(order);
             return;
         }

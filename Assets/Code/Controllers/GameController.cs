@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     public GameObject copperLock;
     public GameObject doorLock;
     private GameObject currentlock;
+
+  
     void Start()
     {
         _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();

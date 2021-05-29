@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Lock : MonoBehaviour
 {
+    private SoundController soundController;
     public LockTypes locktype;
 
     public List<float> lockPositions;
@@ -18,6 +19,7 @@ public class Lock : MonoBehaviour
     
     void Start()
     {
+        soundController = GameObject.Find("GameController").GetComponent<SoundController>();
         lockPositions = new List<float>();
         var lockPinCount = GetPinsForType();
         lockPositions.Capacity = lockPinCount;
@@ -46,7 +48,6 @@ public class Lock : MonoBehaviour
 
     private void PinSet(int whichPin)
     {
-        //TODO: play pin set sound
         var resetPins = false;
         foreach (var pin in pins)
         {
@@ -64,17 +65,20 @@ public class Lock : MonoBehaviour
         if (CheckForUnlock())
         {
             OnSendLockPickMessage("YOU UNLOCKED IT!");
-            Debug.Log("YOU UNLOCKED IT!");
-        } 
+            soundController.PlayLockOpen1();
+            return;
+        }  
+        soundController.PlayLockClick1();
         OnSendLockPickMessage("PIN SET");
     }
 
     private void ResetPins()
     {
-        OnSendLockPickMessage("WRONG ORDER .. LOCK RESET");
+        soundController.PlayPinReset();
+        OnSendLockPickMessage("WRONG ORDER - LOCK RESET");
         foreach (var pin in pins)
         {
-            pin.set = false;
+            pin.SetPin(false);
         }
     }
     private bool CheckForUnlock()

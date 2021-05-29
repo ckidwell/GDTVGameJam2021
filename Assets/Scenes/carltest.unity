@@ -757,22 +757,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 213425434937147501, guid: 98cba46049a592a44aede96e24e03632, type: 3}
-      propertyPath: doorLock
-      value: 
-      objectReference: {fileID: 5092988239372349943, guid: 52b138bb40c9f7b4498a5f0085d98e74, type: 3}
-    - target: {fileID: 213425434937147501, guid: 98cba46049a592a44aede96e24e03632, type: 3}
-      propertyPath: goldLock
-      value: 
-      objectReference: {fileID: 7677940516204628753, guid: a521f95f950856348996b14ecd1fd1d0, type: 3}
-    - target: {fileID: 213425434937147501, guid: 98cba46049a592a44aede96e24e03632, type: 3}
-      propertyPath: copperLock
-      value: 
-      objectReference: {fileID: 6247841926271904864, guid: 73c6380e967dbbb4db55041f17184110, type: 3}
-    - target: {fileID: 213425434937147501, guid: 98cba46049a592a44aede96e24e03632, type: 3}
-      propertyPath: silverLock
-      value: 
-      objectReference: {fileID: 3504918348027729613, guid: 682945160623bcd4aa8a8ca5ff2ae854, type: 3}
     - target: {fileID: 213425434937147502, guid: 98cba46049a592a44aede96e24e03632, type: 3}
       propertyPath: m_RootOrder
       value: 3
