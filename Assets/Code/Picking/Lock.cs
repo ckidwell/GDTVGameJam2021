@@ -13,29 +13,58 @@ public class Lock : MonoBehaviour
     public List<float> lockPositions;
     public List<Pin> pins;
     public bool locked = true;
-    
+   
     public delegate void SendLockPickMessage(string message);
     public static event SendLockPickMessage OnSendLockPickMessage;
     
     void Start()
     {
         soundController = GameObject.Find("GameController").GetComponent<SoundController>();
+        SetupLock();
+    }
+
+    private void SetupLock()
+    {
         lockPositions = new List<float>();
         var lockPinCount = GetPinsForType();
+        
         lockPositions.Capacity = lockPinCount;
         for (var i = 0; i < lockPinCount; i++)
         {
             lockPositions.Add(Random.Range(.1f,.15f));
         }
 
-        var o = 1;
+        
+
+        int[] pinorder = new int[lockPinCount];
+        SetPinOrder(ref pinorder, ref lockPinCount);
+
+        var order = 0;
         foreach (var pin in pins)
         {
-            pin.order = o++;
+            pin.order = pinorder[order++];
             pin.lockHeight = Random.Range(.1f, .15f);
         }
     }
 
+    private void SetPinOrder(ref int[] pinOrderArray, ref int count)
+    {
+        pinOrderArray[0] = Random.Range(1, count);
+        for (int i = 1; i < count; i++)
+        {
+            var selectedOrder = false;
+            while (!selectedOrder)
+            {
+                var newNumber = Random.Range(1, count +1);
+                if (!pinOrderArray.Contains(newNumber))
+                {
+                    pinOrderArray[i] = newNumber;
+                    selectedOrder = true;
+                }
+            }
+        }
+    }
+    
     private void OnEnable()
     {
         Pin.OnPinSet += PinSet; 

@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
-        SpawnLockOfType(LockTypes.DOOR);
+        SpawnLockOfType(LockTypes.GOLD);
     }
     
     void Update()
