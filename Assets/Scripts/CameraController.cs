@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,35 +7,65 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] GameObject outsideCam;
     [SerializeField] GameObject insideCam;
+    [SerializeField] GameObject lockPickingCam;
     [SerializeField] float movementSpeed = 5.0f;
 
     //Serialized for testing
     [SerializeField] bool playerInsideStore = false;
 
+    
     // Start is called before the first frame update
     void Start()
     {
         outsideCam.SetActive(true);
         insideCam.SetActive(false);
+        lockPickingCam.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
+    // void Update()
+    // {
+    //     if(playerInsideStore)
+    //     {
+    //         outsideCam.SetActive(false);
+    //         insideCam.SetActive(true);
+    //     }else
+    //     {
+    //         outsideCam.SetActive(true);
+    //         insideCam.SetActive(false);
+    //     }
+    // }
+
+    public void SetActiveCamera(CameraActive camToSetActive)
     {
-        if(playerInsideStore)
+        outsideCam.SetActive(false);
+        insideCam.SetActive(false);
+        lockPickingCam.SetActive(false);
+        switch (camToSetActive)
         {
-            outsideCam.SetActive(false);
-            insideCam.SetActive(true);
-        }else
-        {
-            outsideCam.SetActive(true);
-            insideCam.SetActive(false);
+            case CameraActive.OUTSIDE:
+                outsideCam.SetActive(true);
+                break;
+            case CameraActive.INSIDE:
+                insideCam.SetActive(true);
+                break;
+            case CameraActive.LOCKPICK:
+                lockPickingCam.SetActive(true);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(camToSetActive), camToSetActive, "Invalid camera to set active.");
         }
     }
-
     //Meant to be called once the player is successfully in the store
     public void doorIsOpen()
     {
         playerInsideStore = true;
     }
+}
+
+public enum CameraActive
+{
+    OUTSIDE,
+    INSIDE,
+    LOCKPICK
 }

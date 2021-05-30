@@ -45,4 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outsideCam: {fileID: 0}
   insideCam: {fileID: 0}
+  lockPickingCam: {fileID: 0}
+  movementSpeed: 5
   playerInsideStore: 0
