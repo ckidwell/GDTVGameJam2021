@@ -6,7 +6,6 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] GameObject outsideCam;
     [SerializeField] GameObject insideCam;
-    [SerializeField] float movementSpeed = 5.0f;
 
     //Serialized for testing
     [SerializeField] bool playerInsideStore = false;
