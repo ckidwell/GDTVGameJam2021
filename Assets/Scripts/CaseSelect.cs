@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,15 @@ public class CaseSelect : MonoBehaviour
     Animator camAnim;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        var go = GameObject.FindWithTag("InsideCamera");
+        insideCam = go.GetComponent<Camera>();
+    }
+
     void Start()
     {
+      
         camAnim = insideCam.GetComponent<Animator>();
         camAnim.SetBool("TableFramed", false);
     }

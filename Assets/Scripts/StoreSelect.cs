@@ -10,6 +10,7 @@ public class StoreSelect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainCam = Camera.main;
         camAnim = mainCam.GetComponent<Animator>();
     }
 

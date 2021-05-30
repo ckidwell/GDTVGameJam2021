@@ -11,6 +11,7 @@ public class LockZoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainCam = Camera.main;
         camAnim = mainCam.GetComponent<Animator>();
         doorCollider.enabled = false;
     }
