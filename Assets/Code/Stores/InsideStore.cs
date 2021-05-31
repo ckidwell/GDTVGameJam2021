@@ -12,16 +12,15 @@ public class InsideStore
     // what lock type each case has?
     // what is in the case
 
-    public InsideStore()
+    public InsideStore(int size)
     {
-        boxes = new[]
+        boxes = new JewelryBox[size];
+
+        for(int i = 0; i< size; i++)
         {
-            new JewelryBox() {size = JewelryBox.GetRandomJewelryBoxSize(), isOpen = false},
-            new JewelryBox() {size = JewelryBox.GetRandomJewelryBoxSize(), isOpen = false},
-            new JewelryBox() {size = JewelryBox.GetRandomJewelryBoxSize(), isOpen = false},
-            new JewelryBox() {size = JewelryBox.GetRandomJewelryBoxSize(), isOpen = false},
-            new JewelryBox() {size = JewelryBox.GetRandomJewelryBoxSize(), isOpen = false},
-        };
+            boxes[i] = new JewelryBox();
+        }
+
     }
 
 }

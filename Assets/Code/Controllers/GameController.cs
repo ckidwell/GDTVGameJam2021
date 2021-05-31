@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     public GameObject storesGO;
     
     // variables to store state of what store we are attempting
+    private Stores allStores;
     private GameObject currentlock;
     private StoreName currentStoreName;
     
@@ -28,6 +29,7 @@ public class GameController : MonoBehaviour
         cameraController = GameObject.Find("Camera Controller").GetComponent<CameraController>();
         _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
         cameraController.SetActiveCamera(CameraActive.OUTSIDE);
+        StartNewGame();
         SetActivity(ActivityType.CITY);
         // SpawnLockOfType(LockTypes.GOLD);
     }
@@ -42,6 +44,7 @@ public class GameController : MonoBehaviour
         StoreLock.OnPickDoor -= PickDoor; 
     }
 
+   
     public void PickDoor(StoreName name)
     {
         currentStoreName = name;
@@ -110,6 +113,10 @@ public class GameController : MonoBehaviour
     public void StartNewGame()
     {
         // do whatever is needed to setup a new game sequence
+        currentStoreName = StoreName.NONE;
+        allStores = new Stores();
+        
+
     }
 
     public void GameOver()

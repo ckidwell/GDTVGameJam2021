@@ -21,6 +21,7 @@ public class JewelryBox
 
     private void FillRandomItems(int numItems)
     {
+        itemsInside = new List<Jewelry>();
         for (int i = 0; i < numItems; i++)
         {
           
