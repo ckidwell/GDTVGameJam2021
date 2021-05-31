@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class Stores : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
+    private InsideStore dewels;
+    private InsideStore yiamonds;
+    private InsideStore zolds;
+    private InsideStore blooddiamonds;
+    private InsideStore zilverexchange;
+    
+    
 }
 
 public enum StoreName
@@ -25,3 +22,4 @@ public enum StoreName
     BLOODDIAMONDS,
     ZILVEREXCHANGE
 }
+

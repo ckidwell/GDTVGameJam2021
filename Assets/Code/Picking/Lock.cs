@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class Lock : MonoBehaviour
 {
     private SoundController soundController;
+    private GameController gameController;
     public LockTypes locktype;
 
     public List<float> lockPositions;
@@ -19,7 +20,9 @@ public class Lock : MonoBehaviour
     
     void Start()
     {
-        soundController = GameObject.Find("GameController").GetComponent<SoundController>();
+        var go = GameObject.Find("GameController");
+        gameController = go.GetComponent<GameController>();
+        soundController = go.GetComponent<SoundController>();
         SetupLock();
     }
 
@@ -94,6 +97,7 @@ public class Lock : MonoBehaviour
         if (CheckForUnlock())
         {
             OnSendLockPickMessage("YOU UNLOCKED IT!");
+            gameController.LockOpened();
             soundController.PlayLockOpen1();
             return;
         }  

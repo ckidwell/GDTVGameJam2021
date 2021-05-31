@@ -48,6 +48,14 @@ public class GameController : MonoBehaviour
         SpawnLockOfType(LockTypes.DOOR);
         SetActivity(ActivityType.LOCKPICKING);
     }
+
+    public void LockOpened()
+    {
+        // TODO:
+        // set current store/lock as opened
+
+        SetActivity(ActivityType.STORE);
+    }
     public void SetActivity(ActivityType type)
     {
         storesGO.SetActive(false);
@@ -79,7 +87,7 @@ public class GameController : MonoBehaviour
     }
     public void SpawnLockOfType(LockTypes type)
     {
-        var spawnPosition = new Vector3(-55, 0, 0);
+        var spawnPosition = new Vector3(-56, 0.0f, 0);
         switch (type)
         {
             case LockTypes.DOOR:
