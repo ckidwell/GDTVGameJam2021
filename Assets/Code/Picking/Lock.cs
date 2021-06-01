@@ -97,7 +97,7 @@ public class Lock : MonoBehaviour
         if (CheckForUnlock())
         {
             OnSendLockPickMessage("YOU UNLOCKED IT!");
-            gameController.LockOpened();
+            gameController.FrontDoorOpened();
             soundController.PlayLockOpen1();
             return;
         }  

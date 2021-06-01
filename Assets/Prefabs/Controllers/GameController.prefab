@@ -57,6 +57,17 @@ MonoBehaviour:
   silverLock: {fileID: 3504918348027729613, guid: 682945160623bcd4aa8a8ca5ff2ae854, type: 3}
   copperLock: {fileID: 6247841926271904864, guid: 73c6380e967dbbb4db55041f17184110, type: 3}
   doorLock: {fileID: 5092988239372349943, guid: 52b138bb40c9f7b4498a5f0085d98e74, type: 3}
+  lockPickingGO: {fileID: 0}
+  jewelryStoreGO: {fileID: 0}
+  citySceneGO: {fileID: 0}
+  storesGO: {fileID: 0}
+  smallJewelryTable: {fileID: 7048824073610641110, guid: 20ca95d31b5443f409d688fbb803ec9c, type: 3}
+  largeJewelryTable: {fileID: 729024647869279455, guid: 18eb6c568de09bf409c2bef1ec7ff712, type: 3}
+  table1Anchor: {fileID: 0}
+  table2Anchor: {fileID: 0}
+  table3Anchor: {fileID: 0}
+  table4Anchor: {fileID: 0}
+  table5Anchor: {fileID: 0}
 --- !u!114 &939274670
 MonoBehaviour:
   m_ObjectHideFlags: 0

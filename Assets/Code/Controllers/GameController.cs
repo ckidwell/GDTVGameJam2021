@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using Random = System.Random;
 
 public class GameController : MonoBehaviour
 {
@@ -19,6 +21,15 @@ public class GameController : MonoBehaviour
     public GameObject citySceneGO;
     public GameObject storesGO;
     
+    //store table prefabs
+    public GameObject smallJewelryTable;
+    public GameObject largeJewelryTable;
+    public GameObject table1Anchor;
+    public GameObject table2Anchor;
+    public GameObject table3Anchor;
+    public GameObject table4Anchor;
+    public GameObject table5Anchor;
+    
     // variables to store state of what store we are attempting
     private Stores allStores;
     private GameObject currentlock;
@@ -31,7 +42,7 @@ public class GameController : MonoBehaviour
         cameraController.SetActiveCamera(CameraActive.OUTSIDE);
         StartNewGame();
         SetActivity(ActivityType.CITY);
-        // SpawnLockOfType(LockTypes.GOLD);
+
     }
     
     private void OnEnable()
@@ -44,7 +55,11 @@ public class GameController : MonoBehaviour
         StoreLock.OnPickDoor -= PickDoor; 
     }
 
-   
+    public void AlarmTriggeredForCurrentStore()
+    {
+        var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
+        if (myStore != null) myStore.alarmTriggered = true;
+    }
     public void PickDoor(StoreName name)
     {
         currentStoreName = name;
@@ -52,11 +67,10 @@ public class GameController : MonoBehaviour
         SetActivity(ActivityType.LOCKPICKING);
     }
 
-    public void LockOpened()
+    public void FrontDoorOpened()
     {
-        // TODO:
-        // set current store/lock as opened
-
+        var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
+        if (myStore != null) myStore.locked = false;
         SetActivity(ActivityType.STORE);
     }
     public void SetActivity(ActivityType type)
@@ -75,6 +89,7 @@ public class GameController : MonoBehaviour
             case ActivityType.STORE:
                 cameraController.SetActiveCamera(CameraActive.INSIDE);
                 jewelryStoreGO.SetActive(true);
+                LoadStore();
                 break;
             case ActivityType.LOCKPICKING:
                 cameraController.SetActiveCamera(CameraActive.LOCKPICK);
@@ -87,6 +102,42 @@ public class GameController : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, "somehow you managed to pass in an invalid activity type");
         }
+    }
+
+    private void LoadStore()
+    {
+        var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
+        GameObject go = null;
+        for (var i = 0; i < myStore.boxes.Length; i++)
+        {
+            go = Instantiate(myStore.boxes[0].size == JewelryBoxSizes.SMALL
+                ? smallJewelryTable
+                : largeJewelryTable);
+            switch (i)
+            {
+                case 1:
+                    go.transform.parent = table1Anchor.transform;
+                    go.transform.position = table1Anchor.transform.position;
+                    break;
+                case 2:
+                    go.transform.parent = table2Anchor.transform;
+                    go.transform.position = table2Anchor.transform.position;
+                    break;
+                case 3:
+                    go.transform.parent = table3Anchor.transform;
+                    go.transform.position = table3Anchor.transform.position;
+                    break;
+                case 4:
+                    go.transform.parent = table4Anchor.transform;
+                    go.transform.position = table4Anchor.transform.position;
+                    break;
+                case 5:
+                    go.transform.parent = table5Anchor.transform;
+                    go.transform.position = table5Anchor.transform.position;
+                    break;
+            }
+        }
+        if (myStore != null) myStore.locked = false;
     }
     public void SpawnLockOfType(LockTypes type)
     {
@@ -115,8 +166,6 @@ public class GameController : MonoBehaviour
         // do whatever is needed to setup a new game sequence
         currentStoreName = StoreName.NONE;
         allStores = new Stores();
-        
-
     }
 
     public void GameOver()

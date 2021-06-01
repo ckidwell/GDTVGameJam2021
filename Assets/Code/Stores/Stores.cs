@@ -5,22 +5,16 @@ using Random = UnityEngine.Random;
 
 public class Stores 
 {
-   
-    private InsideStore dewels;
-    private InsideStore yiamonds;
-    private InsideStore zolds;
-    private InsideStore blooddiamonds;
-    private InsideStore zilverexchange;
-
+   public InsideStore[] stores = new InsideStore[5];
+    
     public Stores()
     {
-        dewels = new InsideStore(Random.Range(3,6));
-        yiamonds = new InsideStore(Random.Range(3,6));
-        zolds = new InsideStore(Random.Range(3,6));
-        blooddiamonds = new InsideStore(Random.Range(3,6));
-        zilverexchange = new InsideStore(Random.Range(3,6));
+        stores[0] = new InsideStore(Random.Range(3,6), StoreName.DEWELS);
+        stores[1] = new InsideStore(Random.Range(3,6), StoreName.YIAMONDS);
+        stores[2] = new InsideStore(Random.Range(3,6), StoreName.ZOLDS);
+        stores[3] = new InsideStore(Random.Range(3,6), StoreName.BLOODDIAMONDS);
+        stores[4] = new InsideStore(Random.Range(3,6), StoreName.ZILVEREXCHANGE);
     }
-    
 }
 
 public enum StoreName
