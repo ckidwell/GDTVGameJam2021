@@ -123,10 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &87229220 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9149683802870579138, guid: 534e5f6734289384daa10f1bcd57ebc0, type: 3}
+  m_PrefabInstance: {fileID: 7489902984415950345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &129857843 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2661036913214236300, guid: 26e4b1387db072a4c9839a0aa1b9ce77, type: 3}
   m_PrefabInstance: {fileID: 312618262}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &136132643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8210094389685001057, guid: 534e5f6734289384daa10f1bcd57ebc0, type: 3}
+  m_PrefabInstance: {fileID: 7489902984415950345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &256712564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1850563407119331226, guid: 534e5f6734289384daa10f1bcd57ebc0, type: 3}
+  m_PrefabInstance: {fileID: 7489902984415950345}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &280690140
 PrefabInstance:
@@ -398,6 +413,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &761879395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143089818012233450, guid: 534e5f6734289384daa10f1bcd57ebc0, type: 3}
+  m_PrefabInstance: {fileID: 7489902984415950345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &792277221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -470,6 +490,26 @@ PrefabInstance:
       propertyPath: citySceneGO
       value: 
       objectReference: {fileID: 1085261780}
+    - target: {fileID: 213425434937147501, guid: 98cba46049a592a44aede96e24e03632, type: 3}
+      propertyPath: table1Anchor
+      value: 
+      objectReference: {fileID: 136132643}
+    - target: {fileID: 213425434937147501, guid: 98cba46049a592a44aede96e24e03632, type: 3}
+      propertyPath: table2Anchor
+      value: 
+      objectReference: {fileID: 256712564}
+    - target: {fileID: 213425434937147501, guid: 98cba46049a592a44aede96e24e03632, type: 3}
+      propertyPath: table3Anchor
+      value: 
+      objectReference: {fileID: 87229220}
+    - target: {fileID: 213425434937147501, guid: 98cba46049a592a44aede96e24e03632, type: 3}
+      propertyPath: table4Anchor
+      value: 
+      objectReference: {fileID: 761879395}
+    - target: {fileID: 213425434937147501, guid: 98cba46049a592a44aede96e24e03632, type: 3}
+      propertyPath: table5Anchor
+      value: 
+      objectReference: {fileID: 1604531618}
     - target: {fileID: 213425434937147501, guid: 98cba46049a592a44aede96e24e03632, type: 3}
       propertyPath: lockPickingGO
       value: 
@@ -686,6 +726,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4688509801685298118, guid: d7b98fa1d2db76a47b1ec500df97afe0, type: 3}
   m_PrefabInstance: {fileID: 1795136669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1604531618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3567607438541597623, guid: 534e5f6734289384daa10f1bcd57ebc0, type: 3}
+  m_PrefabInstance: {fileID: 7489902984415950345}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1607644303
 GameObject:
