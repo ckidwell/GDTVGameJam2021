@@ -63,11 +63,13 @@ public class GameController : MonoBehaviour
     
     private void OnEnable()
     {
+        JewelLock.OnPickBox += PickBox;
         StoreLock.OnPickDoor += PickDoor; 
     }
 
     private void OnDisable()
     {
+        JewelLock.OnPickBox -= PickBox;
         StoreLock.OnPickDoor -= PickDoor; 
     }
 
@@ -83,15 +85,18 @@ public class GameController : MonoBehaviour
         SetActivity(ActivityType.LOCKPICKING);
     }
 
-    public void PickLockForCase(LockTypes lockType, int caseNumber)
+    public void PickBox(StoreName name, LockTypes lockType, int lockNumber)
     {
-        currentlyPickingCaseNumber = caseNumber;
+        currentlyPickingCaseNumber = lockNumber;
         SpawnLockOfType(lockType);
+        SetActivity(ActivityType.LOCKPICKING);
     }
+
     public void FrontDoorOpened()
     {
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         if (myStore != null) myStore.locked = false;
+        Destroy(currentlock);
         SetActivity(ActivityType.STORE);
     }
     public void SetActivity(ActivityType type)

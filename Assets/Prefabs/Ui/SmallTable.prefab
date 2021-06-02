@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2741800081472737655}
   - component: {fileID: 8932061331491380311}
   - component: {fileID: 4514726556759115851}
-  - component: {fileID: 4514726556759115849}
+  - component: {fileID: 4736922754413106034}
   m_Layer: 5
   m_Name: lock
   m_TagString: Untagged
@@ -103,7 +103,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.020508, y: 13.414307}
   m_EdgeRadius: 0
---- !u!114 &4514726556759115849
+--- !u!114 &4736922754413106034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,10 +112,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 462076598000639507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e791476d06813c4da77bae57ce1c568, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fe927f702f2391418dcaf22b905e8a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisLockType: 0
+  storeName: 0
+  lockType: 2
   caseNumber: 0
 --- !u!1 &1295853999090241657
 GameObject:
