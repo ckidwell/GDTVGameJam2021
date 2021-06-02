@@ -19,7 +19,7 @@ public class InsideStore
 
         for (int i = 0; i < size; i++)
         {
-            boxes[i] = new JewelryBox();
+            boxes[i] = new JewelryBox(JewelryBox.GetRandomJewelryBoxSize());
         }
     }
 }

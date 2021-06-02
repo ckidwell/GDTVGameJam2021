@@ -1,20 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[Serializable]
 public class JewelryBox 
 {
     public JewelryBoxSizes size;
     public bool isOpen;
     private List<Jewelry> itemsInside;
 
+    public GameObject[] jewelrySpots;
     private int itemsInSmall = 3;
     private int itemsInLarge = 5;
 
-    public JewelryBox()
+    public JewelryBox(JewelryBoxSizes size)
     {
-        size = GetRandomJewelryBoxSize();
+        this.size = size; // GetRandomJewelryBoxSize();
         isOpen = false;
         FillRandomItems(size == JewelryBoxSizes.SMALL ? itemsInSmall : itemsInLarge);
     }
