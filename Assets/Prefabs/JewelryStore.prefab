@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insideCam: {fileID: 0}
+  zoomPos: {x: 1176, y: 507, z: -102}
 --- !u!1 &2181774748209289474
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insideCam: {fileID: 0}
+  zoomPos: {x: 710, y: 507, z: -102}
 --- !u!1 &3257251729465308321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insideCam: {fileID: 0}
+  zoomPos: {x: 1430, y: 507, z: -102}
 --- !u!1 &5397320041724883333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,6 +1591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insideCam: {fileID: 0}
+  zoomPos: {x: 949, y: 507, z: -102}
 --- !u!1 &6988763017865979017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,6 +1746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insideCam: {fileID: 0}
+  zoomPos: {x: 498, y: 507, z: -102}
 --- !u!1 &7634129126808275945
 GameObject:
   m_ObjectHideFlags: 0
