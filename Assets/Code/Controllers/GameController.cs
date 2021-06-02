@@ -85,6 +85,17 @@ public class GameController : MonoBehaviour
         SetActivity(ActivityType.LOCKPICKING);
     }
 
+    public void BoxOpened()
+    {
+        // TODO ...
+        var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
+        if (myStore != null)
+            myStore.boxes[currentlyPickingCaseNumber].isOpen = true;
+        //TODO: remove the lid from the box
+        //TODO: make it so the jewelry can be looted
+        Destroy(currentlock);
+        SetActivity(ActivityType.STORE);
+    }
     public void PickBox(StoreName name, LockTypes lockType, int lockNumber)
     {
         currentlyPickingCaseNumber = lockNumber;
