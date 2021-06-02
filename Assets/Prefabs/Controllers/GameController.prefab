@@ -68,6 +68,16 @@ MonoBehaviour:
   table3Anchor: {fileID: 0}
   table4Anchor: {fileID: 0}
   table5Anchor: {fileID: 0}
+  GOLDRING: {fileID: -5845753915520582023, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
+  COPPERRING: {fileID: 4613244504323199429, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
+  SILVERRING: {fileID: 8669591409842620746, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
+  GOLDCOIN: {fileID: -2809546781358030136, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
+  DIAMOND: {fileID: -3285268674654225301, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
+  RUBY: {fileID: -9176200843898443681, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
+  EMERALD: {fileID: -3450996400554974534, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
+  SAPPHIRE: {fileID: 1815973787429120824, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
+  AMETHYST: {fileID: -4868911056922709290, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
+  PENDANT: {fileID: 8730441947294350928, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
 --- !u!114 &939274670
 MonoBehaviour:
   m_ObjectHideFlags: 0

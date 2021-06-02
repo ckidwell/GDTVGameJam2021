@@ -8,10 +8,6 @@ public class InsideStore
     public bool locked = true;
     public StoreName name;
     public JewelryBox[] boxes;
-    // number JewelryB
-    // what lock type each case has?
-    // what is in the case
-
     public InsideStore(int size, StoreName name)
     {
         boxes = new JewelryBox[size];

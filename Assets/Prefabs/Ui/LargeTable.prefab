@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6443923061647378347}
   - component: {fileID: 2938239430644281771}
   - component: {fileID: 7640762642106805782}
-  - component: {fileID: 7695471909819821686}
+  - component: {fileID: 935585883395612824}
   m_Layer: 5
   m_Name: jewelrySpot 3
   m_TagString: Untagged
@@ -103,7 +103,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.148804, y: 13.397675}
   m_EdgeRadius: 0
---- !u!114 &7695471909819821686
+--- !u!114 &935585883395612824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 463809280145836108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e791476d06813c4da77bae57ce1c568, type: 3}
+  m_Script: {fileID: 11500000, guid: 84940dab4b9c83c4794daee38f40f9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &729024647869279455
@@ -336,6 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e791476d06813c4da77bae57ce1c568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisLockType: 0
+  caseNumber: 0
 --- !u!1 &1122218445354608651
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +500,7 @@ GameObject:
   - component: {fileID: 2045176906799345507}
   - component: {fileID: 7529200478644293974}
   - component: {fileID: 3987336887394524219}
-  - component: {fileID: 8409381363270758890}
+  - component: {fileID: 1434865247731048798}
   m_Layer: 5
   m_Name: jewelrySpot 4
   m_TagString: Untagged
@@ -589,7 +591,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.148804, y: 13.397675}
   m_EdgeRadius: 0
---- !u!114 &8409381363270758890
+--- !u!114 &1434865247731048798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -598,7 +600,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4084615326636050335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e791476d06813c4da77bae57ce1c568, type: 3}
+  m_Script: {fileID: 11500000, guid: 84940dab4b9c83c4794daee38f40f9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4533115894587929640
@@ -613,7 +615,7 @@ GameObject:
   - component: {fileID: 6751218529204202641}
   - component: {fileID: 7747973665169703457}
   - component: {fileID: 3299989087120146267}
-  - component: {fileID: 7894445687537907612}
+  - component: {fileID: 6063379061395504119}
   m_Layer: 5
   m_Name: jewelrySpot 2
   m_TagString: Untagged
@@ -704,7 +706,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.148804, y: 13.397675}
   m_EdgeRadius: 0
---- !u!114 &7894445687537907612
+--- !u!114 &6063379061395504119
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -713,7 +715,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4533115894587929640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e791476d06813c4da77bae57ce1c568, type: 3}
+  m_Script: {fileID: 11500000, guid: 84940dab4b9c83c4794daee38f40f9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6083057954021302780
@@ -728,7 +730,7 @@ GameObject:
   - component: {fileID: 8881497936953735108}
   - component: {fileID: 193651180175269503}
   - component: {fileID: 2037170027398720707}
-  - component: {fileID: 5447961930266197736}
+  - component: {fileID: 9067164618576890796}
   m_Layer: 5
   m_Name: jewelrySpot 5
   m_TagString: Untagged
@@ -819,7 +821,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.148804, y: 13.397675}
   m_EdgeRadius: 0
---- !u!114 &5447961930266197736
+--- !u!114 &9067164618576890796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -828,7 +830,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6083057954021302780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e791476d06813c4da77bae57ce1c568, type: 3}
+  m_Script: {fileID: 11500000, guid: 84940dab4b9c83c4794daee38f40f9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8382731764134224492
@@ -843,7 +845,7 @@ GameObject:
   - component: {fileID: 413571823701657208}
   - component: {fileID: 4333654526669898223}
   - component: {fileID: 4491717094053766034}
-  - component: {fileID: 250091679412444087}
+  - component: {fileID: 2983089536961277566}
   m_Layer: 5
   m_Name: jewelrySpot 1
   m_TagString: Untagged
@@ -934,7 +936,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.148804, y: 13.397675}
   m_EdgeRadius: 0
---- !u!114 &250091679412444087
+--- !u!114 &2983089536961277566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -943,6 +945,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8382731764134224492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e791476d06813c4da77bae57ce1c568, type: 3}
+  m_Script: {fileID: 11500000, guid: 84940dab4b9c83c4794daee38f40f9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

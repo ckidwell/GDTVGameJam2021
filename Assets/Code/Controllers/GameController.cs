@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class GameController : MonoBehaviour
@@ -22,6 +23,7 @@ public class GameController : MonoBehaviour
     public GameObject storesGO;
     
     //store table prefabs
+    [Header("Store Table Prefabs")]
     public GameObject smallJewelryTable;
     public GameObject largeJewelryTable;
     public GameObject table1Anchor;
@@ -29,11 +31,25 @@ public class GameController : MonoBehaviour
     public GameObject table3Anchor;
     public GameObject table4Anchor;
     public GameObject table5Anchor;
+
+    [Header("Jewelry Graphics")] 
+    public Sprite GOLDRING;
+    public Sprite COPPERRING;
+    public Sprite SILVERRING;
+    public Sprite GOLDCOIN;
+    public Sprite DIAMOND;
+    public Sprite RUBY;
+    public Sprite EMERALD;
+    public Sprite SAPPHIRE;
+    public Sprite AMETHYST;
+    public Sprite PENDANT;
+    
     
     // variables to store state of what store we are attempting
     private Stores allStores;
     private GameObject currentlock;
     private StoreName currentStoreName;
+    private int currentlyPickingCaseNumber = -1;
     
     void Start()
     {
@@ -67,6 +83,11 @@ public class GameController : MonoBehaviour
         SetActivity(ActivityType.LOCKPICKING);
     }
 
+    public void PickLockForCase(LockTypes lockType, int caseNumber)
+    {
+        currentlyPickingCaseNumber = caseNumber;
+        SpawnLockOfType(lockType);
+    }
     public void FrontDoorOpened()
     {
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
@@ -106,11 +127,13 @@ public class GameController : MonoBehaviour
 
     private void LoadStore()
     {
-        var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
+        var insideStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         GameObject go = null;
-        for (var i = 0; i < myStore.boxes.Length; i++)
+        if (insideStore == null)
+            return;
+        for (var i = 0; i < insideStore.boxes.Length; i++)
         {
-            go = Instantiate(myStore.boxes[0].size == JewelryBoxSizes.SMALL
+            go = Instantiate(insideStore.boxes[i].size == JewelryBoxSizes.SMALL
                 ? smallJewelryTable
                 : largeJewelryTable);
             switch (i)
@@ -118,26 +141,80 @@ public class GameController : MonoBehaviour
                 case 1:
                     go.transform.parent = table1Anchor.transform;
                     go.transform.position = table1Anchor.transform.position;
+                    PopulateJewelryInJewelryTable(go, insideStore, i);
                     break;
                 case 2:
                     go.transform.parent = table2Anchor.transform;
                     go.transform.position = table2Anchor.transform.position;
+                    PopulateJewelryInJewelryTable(go, insideStore, i);
                     break;
                 case 3:
                     go.transform.parent = table3Anchor.transform;
                     go.transform.position = table3Anchor.transform.position;
+                    PopulateJewelryInJewelryTable(go, insideStore, i);
                     break;
                 case 4:
                     go.transform.parent = table4Anchor.transform;
                     go.transform.position = table4Anchor.transform.position;
+                    PopulateJewelryInJewelryTable(go, insideStore, i);
                     break;
                 case 5:
                     go.transform.parent = table5Anchor.transform;
                     go.transform.position = table5Anchor.transform.position;
+                    PopulateJewelryInJewelryTable(go, insideStore, i);
                     break;
             }
+
         }
-        if (myStore != null) myStore.locked = false;
+
+
+        insideStore.locked = false;
+    }
+
+    private void PopulateJewelryInJewelryTable(GameObject table, InsideStore store, int tableNum)
+    {
+        var jsInBox = table.GetComponentsInChildren<JSpot>();
+        int count = 0;
+        foreach (var jewelry in store.boxes[tableNum].itemsInside)
+        {
+            switch (jewelry.jewelryType)
+            {
+                case JewelryTypes.GOLDRING:
+                    jsInBox[count].GetComponent<Image>().sprite = GOLDRING;
+                    break;
+                case JewelryTypes.COPPERRING:
+                    jsInBox[count].GetComponent<Image>().sprite = COPPERRING;
+                    break;
+                case JewelryTypes.SILVERRING:
+                    jsInBox[count].GetComponent<Image>().sprite = SILVERRING;
+                    break;
+                case JewelryTypes.GOLDCOIN:
+                    jsInBox[count].GetComponent<Image>().sprite = GOLDCOIN;
+                    break;
+                case JewelryTypes.DIAMOND:
+                    jsInBox[count].GetComponent<Image>().sprite = DIAMOND;
+                    break;
+                case JewelryTypes.RUBY:
+                    jsInBox[count].GetComponent<Image>().sprite = RUBY;
+                    break;
+                case JewelryTypes.EMERALD:
+                    jsInBox[count].GetComponent<Image>().sprite = EMERALD;
+                    break;
+                case JewelryTypes.SAPPHIRE:
+                    jsInBox[count].GetComponent<Image>().sprite = SAPPHIRE;
+                    break;
+                case JewelryTypes.AMETHYST:
+                    jsInBox[count].GetComponent<Image>().sprite = AMETHYST;
+                    break;
+                case JewelryTypes.PENDANT:
+                    jsInBox[count].GetComponent<Image>().sprite = PENDANT;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            count++;
+        }
     }
     public void SpawnLockOfType(LockTypes type)
     {

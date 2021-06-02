@@ -9,7 +9,7 @@ public class JewelryBox
 {
     public JewelryBoxSizes size;
     public bool isOpen;
-    private List<Jewelry> itemsInside;
+    public List<Jewelry> itemsInside;
 
     public GameObject[] jewelrySpots;
     private int itemsInSmall = 3;
@@ -27,7 +27,6 @@ public class JewelryBox
         itemsInside = new List<Jewelry>();
         for (int i = 0; i < numItems; i++)
         {
-          
             itemsInside.Add(new Jewelry());
         }
     }

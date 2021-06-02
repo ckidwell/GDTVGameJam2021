@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttemptUnlock : MonoBehaviour
 {
+    public LockTypes thisLockType;
+    public int caseNumber;
     private void OnMouseDown()
     {
         PickLock();
@@ -11,7 +13,8 @@ public class AttemptUnlock : MonoBehaviour
 
     private void PickLock()
     {
-        Debug.Log("I'm picking the lock now");
+        GameObject.Find("GameController").GetComponent<GameController>().PickLockForCase(thisLockType, caseNumber);
+        //Debug.Log("I'm picking the lock now");
         //Lock pick code goes here
     } 
 }
