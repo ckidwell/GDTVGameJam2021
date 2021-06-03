@@ -18,7 +18,12 @@ public class CaseSelect : MonoBehaviour
 
     void Start()
     {
-      
+        SetDesiredPos();
+    }
+
+    void SetDesiredPos()
+    {
+        zoomPos = transform.position + new Vector3(0,50,-115);
     }
 
     private void OnMouseDown()
