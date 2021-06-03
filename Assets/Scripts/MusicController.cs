@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MusicController : MonoBehaviour
 {
-    AudioSource audiosource;
+    [SerializeField] AudioSource audiosource;
+    //[SerializeField] AudioSource policeChatter;
     
     [SerializeField] float timeRemaining = 120;
     [SerializeField] float timeToStartWorriedClip = 60;
@@ -14,6 +15,7 @@ public class MusicController : MonoBehaviour
     [SerializeField] AudioClip calmMusic;
     [SerializeField] AudioClip worriedMusic;
     [SerializeField] AudioClip stressedMusic;
+    [SerializeField] AudioClip policeChatter;
 
     bool playCalm = true;
     bool playWorried = false;
@@ -37,12 +39,12 @@ public class MusicController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audiosource = GetComponent<AudioSource>();
     }
 
     public void StartTimer()
     {
         timerIsRunning = true;
+        audiosource.PlayOneShot(policeChatter);
     }
 
     // Update is called once per frame
