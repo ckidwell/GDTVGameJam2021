@@ -73,6 +73,8 @@ MonoBehaviour:
   SAPPHIRE: {fileID: 1815973787429120824, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
   AMETHYST: {fileID: -4868911056922709290, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
   PENDANT: {fileID: 8730441947294350928, guid: 76fea13443946aa408eefd1d9c5ba3cd, type: 3}
+  lootCanvas: {fileID: 0}
+  lootCash: {fileID: 961872407050983464, guid: 45203bb588977ba4ba14f72e9d6197e2, type: 3}
 --- !u!114 &939274670
 MonoBehaviour:
   m_ObjectHideFlags: 0

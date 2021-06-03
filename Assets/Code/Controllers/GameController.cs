@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,12 +19,14 @@ public class GameController : MonoBehaviour
     public GameObject doorLock;
    
     //scene game objects to organize in game activities
+    [Header("Scene Canvases")] 
     public GameObject lockPickingGO;
     public GameObject jewelryStoreGO;
     public GameObject citySceneGO;
     public GameObject storesGO;
     
     //store table prefabs
+    [Header("Store Prefabs")] 
     private UIJewelryStore uiJewelryStore;
     public GameObject smallJewelryTable;
     public GameObject largeJewelryTable;
@@ -38,16 +42,22 @@ public class GameController : MonoBehaviour
     public Sprite SAPPHIRE;
     public Sprite AMETHYST;
     public Sprite PENDANT;
-    
+
+    public GameObject lootCanvas;
+    public GameObject lootCash;
     
     // variables to store state of what store we are attempting
     private Stores allStores;
     private GameObject currentlock;
     private StoreName currentStoreName;
     private int currentlyPickingCaseNumber = -1;
-    
+
+    private float screenWidthHalf;
+    private float screenHeightHalf;
     void Start()
     {
+        screenWidthHalf = Screen.width / 2;
+        screenHeightHalf = Screen.height / 2;
         cameraController = GameObject.Find("Camera Controller").GetComponent<CameraController>();
         _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
         uiJewelryStore = GameObject.Find("JewelryStore").GetComponent<UIJewelryStore>();
@@ -78,6 +88,14 @@ public class GameController : MonoBehaviour
         currentStoreName = name;
         SpawnLockOfType(LockTypes.DOOR);
         SetActivity(ActivityType.LOCKPICKING);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            LootItem(new Jewelry() {jewelryType = JewelryTypes.DIAMOND});
+        }
     }
 
     public void BoxOpened()
@@ -261,6 +279,21 @@ public class GameController : MonoBehaviour
         // do what is needed to summarize the end game results 
     }
 
+    public void LootItem(Jewelry jewelry)
+    {
+        if (jewelry != null)
+        {
+            Debug.Log("just looted a : " + jewelry.jewelryType);
+        }
+
+        var lootAmount = UnityEngine.Random.Range(300, 1500);
+        var go = Instantiate(lootCash, lootCanvas.transform, true);
+        go.transform.localPosition = new Vector3(0, 0, 0);
+        go.GetComponent<TMP_Text>().text = lootAmount.ToString() + ".00";
+        
+        // add to score
+
+    }
     public void ExitToMain()
     {
         _menuController.GoMainMenu();
