@@ -94,9 +94,9 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         #if UNITY_EDITOR
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.O))
         {
-            LootItem(new Jewelry() {jewelryType = JewelryTypes.DIAMOND});
+            GameOver();
         }
         if (Input.GetKeyUp(KeyCode.F))
         {
