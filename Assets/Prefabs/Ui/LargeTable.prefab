@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2938239430644281771}
   - component: {fileID: 7640762642106805782}
   - component: {fileID: 935585883395612824}
+  - component: {fileID: 588529383554903680}
   m_Layer: 5
   m_Name: jewelrySpot 3
   m_TagString: Untagged
@@ -115,6 +116,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84940dab4b9c83c4794daee38f40f9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &588529383554903680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463809280145836108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f3b836dea31db41b669f1ba18a7f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &729024647869279455
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insideCam: {fileID: 0}
+  zoomPos: {x: 0, y: 0, z: 0}
 --- !u!114 &2131481338001897681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +529,7 @@ GameObject:
   - component: {fileID: 7529200478644293974}
   - component: {fileID: 3987336887394524219}
   - component: {fileID: 1434865247731048798}
+  - component: {fileID: 6228020941891879951}
   m_Layer: 5
   m_Name: jewelrySpot 4
   m_TagString: Untagged
@@ -617,6 +632,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84940dab4b9c83c4794daee38f40f9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6228020941891879951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4084615326636050335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f3b836dea31db41b669f1ba18a7f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4533115894587929640
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +657,7 @@ GameObject:
   - component: {fileID: 7747973665169703457}
   - component: {fileID: 3299989087120146267}
   - component: {fileID: 6063379061395504119}
+  - component: {fileID: 742617227765481847}
   m_Layer: 5
   m_Name: jewelrySpot 2
   m_TagString: Untagged
@@ -732,6 +760,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84940dab4b9c83c4794daee38f40f9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &742617227765481847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533115894587929640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f3b836dea31db41b669f1ba18a7f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6083057954021302780
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +785,7 @@ GameObject:
   - component: {fileID: 193651180175269503}
   - component: {fileID: 2037170027398720707}
   - component: {fileID: 9067164618576890796}
+  - component: {fileID: 5215105188418121324}
   m_Layer: 5
   m_Name: jewelrySpot 5
   m_TagString: Untagged
@@ -847,6 +888,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84940dab4b9c83c4794daee38f40f9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5215105188418121324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6083057954021302780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f3b836dea31db41b669f1ba18a7f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8382731764134224492
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +913,7 @@ GameObject:
   - component: {fileID: 4333654526669898223}
   - component: {fileID: 4491717094053766034}
   - component: {fileID: 2983089536961277566}
+  - component: {fileID: 8041409024826054902}
   m_Layer: 5
   m_Name: jewelrySpot 1
   m_TagString: Untagged
@@ -960,5 +1014,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84940dab4b9c83c4794daee38f40f9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8041409024826054902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382731764134224492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f3b836dea31db41b669f1ba18a7f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

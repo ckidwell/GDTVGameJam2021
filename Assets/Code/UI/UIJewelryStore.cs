@@ -42,18 +42,23 @@ public class UIJewelryStore : MonoBehaviour
         {
             case 0:
                 table1Lid.SetActive(false);
+                EnableGemCollidersForBox(0);
                 break;
             case 1:
                 table2Lid.SetActive(false);
+                EnableGemCollidersForBox(1);
                 break;
             case 2:
                 table3Lid.SetActive(false);
+                EnableGemCollidersForBox(2);
                 break;
             case 3:
                 table4Lid.SetActive(false);
+                EnableGemCollidersForBox(3);
                 break;
             case 4 :
                 table5Lid.SetActive(false);
+                EnableGemCollidersForBox(4);
                 break;
             default:
                 break;
@@ -72,11 +77,57 @@ public class UIJewelryStore : MonoBehaviour
 
     public void DisableGemCollidersForBox(int boxNumber)
     {
+        var boxColliders = table1Anchor.GetComponentsInChildren<BoxCollider2D>();
+        ToggleColliders(boxColliders, false);
+        ToggleColliders(table2Anchor.GetComponentsInChildren<BoxCollider2D>(), false);
+
+        boxColliders = table3Anchor.GetComponentsInChildren<BoxCollider2D>();
+        if(boxColliders != null)
+            ToggleColliders(boxColliders, false);
         
+        boxColliders = table4Anchor.GetComponentsInChildren<BoxCollider2D>();
+        if(boxColliders != null)
+            ToggleColliders(boxColliders, false);
+        
+        boxColliders = table5Anchor.GetComponentsInChildren<BoxCollider2D>();
+        if(boxColliders != null)
+            ToggleColliders(boxColliders, false);
     }
 
+    private void ToggleColliders(BoxCollider2D[] boxes, bool on)
+    {
+        foreach (var boxCollider2D in boxes)
+        {
+            boxCollider2D.enabled = on;
+        }
+    }
     public void EnableGemCollidersForBox(int boxNumber)
     {
-        
+        var boxColliders = table1Anchor.GetComponentsInChildren<BoxCollider2D>();
+        switch (boxNumber)
+        {
+            case 0:
+                ToggleColliders(boxColliders, true);
+                break;
+            case 1:
+                ToggleColliders(table2Anchor.GetComponentsInChildren<BoxCollider2D>(), true);
+                break;
+            case 2:
+                boxColliders = table3Anchor.GetComponentsInChildren<BoxCollider2D>();
+                if(boxColliders != null)
+                    ToggleColliders(boxColliders, true);
+                break;
+            case 3:
+                   
+                boxColliders = table4Anchor.GetComponentsInChildren<BoxCollider2D>();
+                if(boxColliders != null)
+                    ToggleColliders(boxColliders, true);
+                break;
+            case 4:
+                boxColliders = table5Anchor.GetComponentsInChildren<BoxCollider2D>();
+                if(boxColliders != null)
+                    ToggleColliders(boxColliders, true);
+                break;
+        }
     }
 }

@@ -87,13 +87,12 @@ public class GameController : MonoBehaviour
         if (myStore != null)
             myStore.boxes[currentlyPickingCaseNumber].isOpen = true;
         //TODO: make it so the jewelry can be looted
-        uiJewelryStore.OpenLidForBoxNumber(currentlyPickingCaseNumber);
+       
         Destroy(currentlock);
-        //TODO: need to load the store camera but not the items in it
         cameraController.SetActiveCamera(CameraActive.INSIDE);
         jewelryStoreGO.SetActive(true);
+        uiJewelryStore.OpenLidForBoxNumber(currentlyPickingCaseNumber);
         lockPickingGO.SetActive(false);
-        //SetActivity(ActivityType.STORE);
     }
     public void PickBox(StoreName name, LockTypes lockType, int lockNumber)
     {
@@ -155,38 +154,34 @@ public class GameController : MonoBehaviour
             switch (i)
             {
                 case 1:
-                    go.transform.parent = uiJewelryStore.table1Anchor.transform;
-                    go.transform.position = uiJewelryStore.table1Anchor.transform.position;
-                    PopulateJewelryInJewelryTable(go, insideStore, i);
+                    LoadTableInStore(go, i, insideStore,uiJewelryStore.table1Anchor.transform);
                     break;
                 case 2:
-                    go.transform.parent = uiJewelryStore.table2Anchor.transform;
-                    go.transform.position = uiJewelryStore.table2Anchor.transform.position;
-                    PopulateJewelryInJewelryTable(go, insideStore, i);
+                    LoadTableInStore(go, i, insideStore,uiJewelryStore.table2Anchor.transform );
                     break;
                 case 3:
-                    go.transform.parent = uiJewelryStore.table3Anchor.transform;
-                    go.transform.position = uiJewelryStore.table3Anchor.transform.position;
-                    PopulateJewelryInJewelryTable(go, insideStore, i);
+                    LoadTableInStore(go, i, insideStore,uiJewelryStore.table3Anchor.transform );
                     break;
                 case 4:
-                    go.transform.parent = uiJewelryStore.table4Anchor.transform;
-                    go.transform.position = uiJewelryStore.table4Anchor.transform.position;
-                    PopulateJewelryInJewelryTable(go, insideStore, i);
+                    LoadTableInStore(go, i, insideStore,uiJewelryStore.table4Anchor.transform );
                     break;
                 case 5:
-                    go.transform.parent = uiJewelryStore.table5Anchor.transform;
-                    go.transform.position = uiJewelryStore.table5Anchor.transform.position;
-                    PopulateJewelryInJewelryTable(go, insideStore, i);
+                    LoadTableInStore(go, i, insideStore,uiJewelryStore.table5Anchor.transform );
                     break;
             }
-
         }
-
         uiJewelryStore.GetLidsAndGemColliders();
         insideStore.locked = false;
     }
 
+    private void LoadTableInStore(GameObject go, int i, InsideStore insideStore, Transform t)
+    {
+        go.transform.parent = t;
+        go.transform.position = t.position;
+        var jewelLock = go.GetComponentInChildren<JewelLock>();
+        jewelLock.caseNumber = i;
+        PopulateJewelryInJewelryTable(go, insideStore, i);
+    }
     private void PopulateJewelryInJewelryTable(GameObject table, InsideStore store, int tableNum)
     {
         var jsInBox = table.GetComponentsInChildren<JSpot>();
