@@ -23,14 +23,9 @@ public class GameController : MonoBehaviour
     public GameObject storesGO;
     
     //store table prefabs
-    [Header("Store Table Prefabs")]
+    private UIJewelryStore uiJewelryStore;
     public GameObject smallJewelryTable;
     public GameObject largeJewelryTable;
-    public GameObject table1Anchor;
-    public GameObject table2Anchor;
-    public GameObject table3Anchor;
-    public GameObject table4Anchor;
-    public GameObject table5Anchor;
 
     [Header("Jewelry Graphics")] 
     public Sprite GOLDRING;
@@ -55,10 +50,10 @@ public class GameController : MonoBehaviour
     {
         cameraController = GameObject.Find("Camera Controller").GetComponent<CameraController>();
         _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
+        uiJewelryStore = GameObject.Find("JewelryStore").GetComponent<UIJewelryStore>();
         cameraController.SetActiveCamera(CameraActive.OUTSIDE);
         StartNewGame();
         SetActivity(ActivityType.CITY);
-
     }
     
     private void OnEnable()
@@ -91,10 +86,14 @@ public class GameController : MonoBehaviour
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         if (myStore != null)
             myStore.boxes[currentlyPickingCaseNumber].isOpen = true;
-        //TODO: remove the lid from the box
         //TODO: make it so the jewelry can be looted
+        uiJewelryStore.OpenLidForBoxNumber(currentlyPickingCaseNumber);
         Destroy(currentlock);
-        SetActivity(ActivityType.STORE);
+        //TODO: need to load the store camera but not the items in it
+        cameraController.SetActiveCamera(CameraActive.INSIDE);
+        jewelryStoreGO.SetActive(true);
+        lockPickingGO.SetActive(false);
+        //SetActivity(ActivityType.STORE);
     }
     public void PickBox(StoreName name, LockTypes lockType, int lockNumber)
     {
@@ -152,38 +151,39 @@ public class GameController : MonoBehaviour
             go = Instantiate(insideStore.boxes[i].size == JewelryBoxSizes.SMALL
                 ? smallJewelryTable
                 : largeJewelryTable);
+            go.name = "table";
             switch (i)
             {
                 case 1:
-                    go.transform.parent = table1Anchor.transform;
-                    go.transform.position = table1Anchor.transform.position;
+                    go.transform.parent = uiJewelryStore.table1Anchor.transform;
+                    go.transform.position = uiJewelryStore.table1Anchor.transform.position;
                     PopulateJewelryInJewelryTable(go, insideStore, i);
                     break;
                 case 2:
-                    go.transform.parent = table2Anchor.transform;
-                    go.transform.position = table2Anchor.transform.position;
+                    go.transform.parent = uiJewelryStore.table2Anchor.transform;
+                    go.transform.position = uiJewelryStore.table2Anchor.transform.position;
                     PopulateJewelryInJewelryTable(go, insideStore, i);
                     break;
                 case 3:
-                    go.transform.parent = table3Anchor.transform;
-                    go.transform.position = table3Anchor.transform.position;
+                    go.transform.parent = uiJewelryStore.table3Anchor.transform;
+                    go.transform.position = uiJewelryStore.table3Anchor.transform.position;
                     PopulateJewelryInJewelryTable(go, insideStore, i);
                     break;
                 case 4:
-                    go.transform.parent = table4Anchor.transform;
-                    go.transform.position = table4Anchor.transform.position;
+                    go.transform.parent = uiJewelryStore.table4Anchor.transform;
+                    go.transform.position = uiJewelryStore.table4Anchor.transform.position;
                     PopulateJewelryInJewelryTable(go, insideStore, i);
                     break;
                 case 5:
-                    go.transform.parent = table5Anchor.transform;
-                    go.transform.position = table5Anchor.transform.position;
+                    go.transform.parent = uiJewelryStore.table5Anchor.transform;
+                    go.transform.position = uiJewelryStore.table5Anchor.transform.position;
                     PopulateJewelryInJewelryTable(go, insideStore, i);
                     break;
             }
 
         }
 
-
+        uiJewelryStore.GetLidsAndGemColliders();
         insideStore.locked = false;
     }
 
