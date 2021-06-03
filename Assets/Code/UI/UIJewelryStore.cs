@@ -40,23 +40,23 @@ public class UIJewelryStore : MonoBehaviour
     {
         switch (boxNumber)
         {
-            case 0:
+            case 1:
                 table1Lid.SetActive(false);
                 EnableGemCollidersForBox(0);
                 break;
-            case 1:
+            case 2:
                 table2Lid.SetActive(false);
                 EnableGemCollidersForBox(1);
                 break;
-            case 2:
+            case 3:
                 table3Lid.SetActive(false);
                 EnableGemCollidersForBox(2);
                 break;
-            case 3:
+            case 4:
                 table4Lid.SetActive(false);
                 EnableGemCollidersForBox(3);
                 break;
-            case 4 :
+            case 5 :
                 table5Lid.SetActive(false);
                 EnableGemCollidersForBox(4);
                 break;

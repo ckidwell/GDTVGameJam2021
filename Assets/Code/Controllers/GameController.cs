@@ -92,10 +92,20 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.L))
+        #if UNITY_EDITOR
+        if (Input.GetKeyUp(KeyCode.C))
         {
             LootItem(new Jewelry() {jewelryType = JewelryTypes.DIAMOND});
         }
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            FrontDoorOpened();
+        }
+        if (Input.GetKeyUp(KeyCode.B))
+        {
+            BoxOpened();
+        }
+        #endif
     }
 
     public void BoxOpened()
