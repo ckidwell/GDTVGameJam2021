@@ -7,6 +7,7 @@ using UnityEngine.Experimental.Rendering.LWRP;
 public class Alarm : MonoBehaviour
 { 
    private SoundController soundController;
+   private MusicController musicController;
    private Color red = Color.red;
    private Color green = Color.green;
    
@@ -16,6 +17,7 @@ public class Alarm : MonoBehaviour
     void Start()
     {
         soundController = GameObject.Find("GameController").GetComponent<SoundController>();
+        musicController = GameObject.Find("MusicPlayer").GetComponent<MusicController>();
         redLight.SetActive(false);
         greenLight.SetActive(true);
         alarmLight.color = green;
@@ -34,6 +36,7 @@ public class Alarm : MonoBehaviour
     private void AlarmTriggered()
     {
         soundController.PlayAlarmTrigger();
+        musicController.StartTimer();
         redLight.SetActive(true);
         greenLight.SetActive(false);
         alarmLight.color = red;
