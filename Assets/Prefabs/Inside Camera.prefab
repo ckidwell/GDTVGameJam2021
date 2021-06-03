@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4688509801685298117}
   - component: {fileID: 4688509801685298115}
   - component: {fileID: 4688509801685298116}
-  - component: {fileID: 4688509801685298113}
+  - component: {fileID: 1589958496}
   m_Layer: 0
   m_Name: Inside Camera
   m_TagString: InsideCamera
@@ -117,22 +117,20 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!95 &4688509801685298113
-Animator:
-  serializedVersion: 3
+--- !u!114 &1589958496
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4688509801685298118}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fc23f7b4bc430f34a89b33e7622bf714, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d956a7d2c5f2c44fbd1002bd6c58d3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desiredPos: {x: 0, y: 0, z: 0}
+  defaultPos: {x: 776, y: 507, z: -380}
+  zoomIn: 0
+  zoomOut: 0
+  tableFramed: 0
