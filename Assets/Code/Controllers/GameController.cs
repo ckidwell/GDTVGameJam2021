@@ -162,6 +162,7 @@ public class GameController : MonoBehaviour
             case ActivityType.WIN:
                 break;
             case ActivityType.LOSS:
+                _menuController.GameOver();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, "somehow you managed to pass in an invalid activity type");
@@ -290,6 +291,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         // do what is needed to summarize the end game results 
+        SetActivity(ActivityType.LOSS);
     }
 
     public void LootItem(Jewelry jewelry)

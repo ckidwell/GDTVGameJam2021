@@ -74,6 +74,10 @@ public class MenuController : MonoBehaviour
         }
     }
 
+    public void GameOver()
+    {
+        ShowMenu(MenuType.GAMEOVER);
+    }
     public void QuitGame()
     {
         
