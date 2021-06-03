@@ -86,7 +86,18 @@ public class GameController : MonoBehaviour
     }
     public void PickDoor(StoreName name)
     {
+        allStores.stores[1].visited = true;
         currentStoreName = name;
+        var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
+        if (myStore != null && myStore.visited)
+        {
+            var go = Instantiate(lootCash, lootCanvas.transform, true);
+            go.transform.localPosition = new Vector3(0, 0, 0);
+            _menuController.SetScore(score.ToString());
+            go.GetComponent<TMP_Text>().text = "going back is a sure way to get caught...";
+            return;
+        } 
+        
         SpawnLockOfType(LockTypes.DOOR);
         SetActivity(ActivityType.LOCKPICKING);
     }
@@ -111,12 +122,9 @@ public class GameController : MonoBehaviour
     
     public void BoxOpened()
     {
-        // TODO ...
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         if (myStore != null)
             myStore.boxes[currentlyPickingCaseNumber].isOpen = true;
-        //TODO: make it so the jewelry can be looted
-       
         Destroy(currentlock);
         cameraController.SetActiveCamera(CameraActive.INSIDE);
         jewelryStoreGO.SetActive(true);
@@ -134,6 +142,7 @@ public class GameController : MonoBehaviour
     {
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         if (myStore != null) myStore.locked = false;
+        myStore.visited = true;
         Destroy(currentlock);
         SetActivity(ActivityType.STORE);
     }
