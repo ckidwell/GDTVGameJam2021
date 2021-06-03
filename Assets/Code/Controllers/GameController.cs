@@ -18,7 +18,8 @@ public class GameController : MonoBehaviour
     public GameObject copperLock;
     public GameObject doorLock;
     public int score;
-
+    private bool gameOver = false;
+    private bool playerCaught = false;
     //scene game objects to organize in game activities
     [Header("Scene Canvases")] 
     public GameObject lockPickingGO;
@@ -53,12 +54,8 @@ public class GameController : MonoBehaviour
     private StoreName currentStoreName;
     private int currentlyPickingCaseNumber = -1;
 
-    private float screenWidthHalf;
-    private float screenHeightHalf;
     void Start()
     {
-        screenWidthHalf = Screen.width / 2;
-        screenHeightHalf = Screen.height / 2;
         cameraController = GameObject.Find("Camera Controller").GetComponent<CameraController>();
         _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
         uiJewelryStore = GameObject.Find("JewelryStore").GetComponent<UIJewelryStore>();
@@ -79,6 +76,25 @@ public class GameController : MonoBehaviour
         StoreLock.OnPickDoor -= PickDoor; 
     }
 
+    public void PlayerCaught()
+    {
+        playerCaught = true;
+        CheckGameOverStatus();
+    }
+    public void CheckGameOverStatus()
+    {
+        if (allStores.stores[0].visited &&
+            allStores.stores[1].visited &&
+            allStores.stores[2].visited &&
+            allStores.stores[3].visited &&
+            allStores.stores[4].visited)
+        {
+            gameOver = true;
+        }
+        
+        if(gameOver || playerCaught)
+            GameOver();
+    }
     public void AlarmTriggeredForCurrentStore()
     {
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
@@ -87,6 +103,16 @@ public class GameController : MonoBehaviour
     public void PickDoor(StoreName name)
     {
         currentStoreName = name;
+        var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
+        if (myStore != null && myStore.visited)
+        {
+            var go = Instantiate(lootCash, lootCanvas.transform, true);
+            go.transform.localPosition = new Vector3(0, 0, 0);
+            _menuController.SetScore(score.ToString());
+            go.GetComponent<TMP_Text>().text = "going back is a sure way to get caught...";
+            return;
+        } 
+        
         SpawnLockOfType(LockTypes.DOOR);
         SetActivity(ActivityType.LOCKPICKING);
     }
@@ -106,17 +132,18 @@ public class GameController : MonoBehaviour
         {
             BoxOpened();
         }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            CheckGameOverStatus();
+        }
         #endif
     }
     
     public void BoxOpened()
     {
-        // TODO ...
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         if (myStore != null)
             myStore.boxes[currentlyPickingCaseNumber].isOpen = true;
-        //TODO: make it so the jewelry can be looted
-       
         Destroy(currentlock);
         cameraController.SetActiveCamera(CameraActive.INSIDE);
         jewelryStoreGO.SetActive(true);
@@ -134,6 +161,7 @@ public class GameController : MonoBehaviour
     {
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         if (myStore != null) myStore.locked = false;
+        myStore.visited = true;
         Destroy(currentlock);
         SetActivity(ActivityType.STORE);
     }
@@ -283,6 +311,8 @@ public class GameController : MonoBehaviour
     {
         // do whatever is needed to setup a new game sequence
         score = 0;
+        gameOver = false;
+        playerCaught = false;
         _menuController.SetScore(score.ToString());
         currentStoreName = StoreName.NONE;
         allStores = new Stores();

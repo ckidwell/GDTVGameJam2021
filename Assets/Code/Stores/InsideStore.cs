@@ -6,6 +6,7 @@ public class InsideStore
 {
     public bool alarmTriggered = false;
     public bool locked = true;
+    public bool visited = false;
     public StoreName name;
     public JewelryBox[] boxes;
     public InsideStore(int size, StoreName name)
