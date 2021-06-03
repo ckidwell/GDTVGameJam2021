@@ -6,7 +6,8 @@ using UnityEngine;
 public class CaseSelect : MonoBehaviour
 {
     [SerializeField] Camera insideCam;
-    Animator camAnim;
+    [SerializeField] Vector3 zoomPos;
+
 
     // Start is called before the first frame update
     private void Awake()
@@ -18,20 +19,29 @@ public class CaseSelect : MonoBehaviour
     void Start()
     {
       
-        camAnim = insideCam.GetComponent<Animator>();
-        camAnim.SetBool("TableFramed", false);
     }
 
     private void OnMouseDown()
     {
-        if (!camAnim.GetBool("TableFramed"))
+        if (!insideCam.GetComponent<CameraMovement>().tableFramed)
         {
-            camAnim.SetTrigger(gameObject.name);
-            camAnim.SetBool("TableFramed", true);
+            insideCam.GetComponent<CameraMovement>().zoomIn = true;
+            insideCam.GetComponent<CameraMovement>().defaultPos = insideCam.transform.position;
+            insideCam.GetComponent<CameraMovement>().desiredPos = zoomPos;
+
+
+            //camAnim.SetTrigger(gameObject.name);
+            //camAnim.SetBool("TableFramed", true);
         }else
         {
-            camAnim.SetTrigger("BackToDefault");
-            camAnim.SetBool("TableFramed", false);
+            insideCam.GetComponent<CameraMovement>().zoomOut = true;
+            //insideCam.GetComponent<CameraMovement>().desiredPos = insideCam.GetComponent<CameraMovement>().defaultPos;
+            //insideCam.GetComponent<CameraMovement>().defaultPos = insideCam.transform.position;
+            //startPos = insideCam.transform.position;
+
+            //insideCam.GetComponent<CameraMovement>().ZoomOnCase(startPos, defaultPos);
+            //camAnim.SetTrigger("BackToDefault");
+            //camAnim.SetBool("TableFramed", false);
         }
     }
 }
