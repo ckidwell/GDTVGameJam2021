@@ -36,7 +36,7 @@ public class MenuController : MonoBehaviour
       
     }
 
-    public void ShowMenu(MenuType type)
+    private void ShowMenu(MenuType type)
     {
         mainMenuCanvas.SetActive(false);
         playerHUD.SetActive(false);
@@ -66,8 +66,8 @@ public class MenuController : MonoBehaviour
         
     }
 
-    public void GoMainmenu()
+    public void GoMainMenu()
     {
-        
+        ShowMenu(MenuType.MAIN);
     }
 }

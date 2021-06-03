@@ -263,6 +263,6 @@ public class GameController : MonoBehaviour
 
     public void ExitToMain()
     {
-        // do what is needed to return to the main menu
+        _menuController.GoMainMenu();
     }
 }
