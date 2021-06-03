@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MenuController : MonoBehaviour
@@ -14,6 +15,9 @@ public class MenuController : MonoBehaviour
     private GameObject gameOverCanvas;
     [SerializeField]
     private GameObject creditsCanvas;
+
+    private GameController gameController;
+    private TMP_Text scoreText;
     public enum MenuType
     {
         MAIN,
@@ -23,17 +27,26 @@ public class MenuController : MonoBehaviour
     }
     void Start()
     {
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
         mainMenuCanvas = Instantiate(mainMenuCanvas);
         playerHUD = Instantiate(playerHUD);
+       
+        scoreText =playerHUD.transform.Find("HUDBAR/ScoreText").gameObject.GetComponentInChildren<TMP_Text>();
         gameOverCanvas =  Instantiate(gameOverCanvas);
         creditsCanvas =  Instantiate(creditsCanvas);
         ShowMenu(MenuType.MAIN);
     }
 
+    public void SetScore(string val)
+    {
+        if(scoreText == null)
+            scoreText = playerHUD.transform.Find("HUDBAR/ScoreText").gameObject.GetComponentInChildren<TMP_Text>();
+        scoreText.text = val;
+    }
     public void PlayGame()
     {
         ShowMenu(MenuType.HUD);
-      
+        gameController.StartNewGame();
     }
 
     private void ShowMenu(MenuType type)

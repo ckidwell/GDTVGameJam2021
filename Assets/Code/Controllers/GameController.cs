@@ -17,7 +17,8 @@ public class GameController : MonoBehaviour
     public GameObject silverLock;
     public GameObject copperLock;
     public GameObject doorLock;
-   
+    public int score;
+
     //scene game objects to organize in game activities
     [Header("Scene Canvases")] 
     public GameObject lockPickingGO;
@@ -62,7 +63,7 @@ public class GameController : MonoBehaviour
         _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
         uiJewelryStore = GameObject.Find("JewelryStore").GetComponent<UIJewelryStore>();
         cameraController.SetActiveCamera(CameraActive.OUTSIDE);
-        StartNewGame();
+       
         SetActivity(ActivityType.CITY);
     }
     
@@ -107,7 +108,7 @@ public class GameController : MonoBehaviour
         }
         #endif
     }
-
+    
     public void BoxOpened()
     {
         // TODO ...
@@ -280,6 +281,8 @@ public class GameController : MonoBehaviour
     public void StartNewGame()
     {
         // do whatever is needed to setup a new game sequence
+        score = 0;
+        _menuController.SetScore(score.ToString());
         currentStoreName = StoreName.NONE;
         allStores = new Stores();
     }
@@ -299,6 +302,8 @@ public class GameController : MonoBehaviour
         var lootAmount = UnityEngine.Random.Range(300, 1500);
         var go = Instantiate(lootCash, lootCanvas.transform, true);
         go.transform.localPosition = new Vector3(0, 0, 0);
+        score += lootAmount;
+        _menuController.SetScore(score.ToString());
         go.GetComponent<TMP_Text>().text = lootAmount.ToString() + ".00";
         
         // add to score
