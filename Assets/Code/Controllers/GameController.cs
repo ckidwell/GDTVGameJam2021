@@ -191,6 +191,7 @@ public class GameController : MonoBehaviour
        
         _menuController.HudShowExitOrLeaveButton(true);
         SetActivity(ActivityType.CITY);
+        CheckGameOverStatus();
     }
     public void SetActivity(ActivityType type)
     {
@@ -246,7 +247,7 @@ public class GameController : MonoBehaviour
             Transform goTransform = go.transform;
             foreach (Transform child in goTransform)
             {
-                GameObject.DestroyImmediate(child.gameObject);
+               DestroyImmediate(child.gameObject);
             }
         }
 
@@ -288,7 +289,6 @@ public class GameController : MonoBehaviour
         var go = Instantiate(insideStore.boxes[i].size == JewelryBoxSizes.SMALL
             ? smallJewelryTable
             : largeJewelryTable, t);
-        // go.transform.parent = t;
         go.transform.position = t.position;
         go.name = "table" + i;
         var jewelLock = go.GetComponentInChildren<JewelLock>();
@@ -393,9 +393,6 @@ public class GameController : MonoBehaviour
         score += lootAmount;
         _menuController.SetScore(score.ToString());
         go.GetComponent<TMP_Text>().text = lootAmount.ToString() + ".00";
-        
-        // add to score
-
     }
     public void ExitToMain()
     {

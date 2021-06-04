@@ -106,23 +106,19 @@ public class UIJewelryStore : MonoBehaviour
                 break;
             case 2:
                 ToggleColliders(GetGemBoxCollidersForAnchor(table2Anchor), toggleOn);
-                //ToggleColliders(table2Anchor.GetComponentsInChildren<BoxCollider2D>(), toggleOn);
                 break;
             case 3:
-                //boxColliders = table3Anchor.GetComponentsInChildren<BoxCollider2D>();
                 boxColliders = GetGemBoxCollidersForAnchor(table3Anchor);
                 if(boxColliders != null)
                     ToggleColliders(boxColliders, toggleOn);
                 break;
             case 4:
-                //boxColliders = table4Anchor.GetComponentsInChildren<BoxCollider2D>();
                 boxColliders = GetGemBoxCollidersForAnchor(table4Anchor);
                 if(boxColliders != null)
                     ToggleColliders(boxColliders, toggleOn);
                 break;
             case 5:
                 boxColliders = GetGemBoxCollidersForAnchor(table5Anchor);
-                //boxColliders = table5Anchor.GetComponentsInChildren<BoxCollider2D>();
                 if(boxColliders != null)
                     ToggleColliders(boxColliders, toggleOn);
                 break;
