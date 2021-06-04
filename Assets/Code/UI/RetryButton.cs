@@ -5,9 +5,15 @@ using UnityEngine.EventSystems;
 
 public class RetryButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
+    private MenuController _menuController;
+    void Start()
+    {
+        _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
+    }
+
     public void OnPointerUp(PointerEventData eventData)
     {
-        GameObject.Find("GameController").GetComponent<GameController>().StartNewGame();
+        _menuController.PlayGame();
     }
 
     public void OnPointerDown(PointerEventData eventData)
