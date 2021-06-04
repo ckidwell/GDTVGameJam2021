@@ -6,8 +6,8 @@ public class MusicController : MonoBehaviour
 {
     GameController gamecontroller;
 
-    [SerializeField] AudioSource audiosource;
-    //[SerializeField] AudioSource policeChatter;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource policeChatter;
     
     [SerializeField] float timeRemaining = 120;
     [SerializeField] float timeToStartWorriedClip = 60;
@@ -17,13 +17,15 @@ public class MusicController : MonoBehaviour
     [SerializeField] AudioClip calmMusic;
     [SerializeField] AudioClip worriedMusic;
     [SerializeField] AudioClip stressedMusic;
-    [SerializeField] AudioClip policeChatter;
+    [SerializeField] AudioClip radioClip;
+    [SerializeField] AudioClip radioClip2;
 
     bool playCalm = true;
     bool playWorried = false;
     bool playStressed = false;
 
-    bool playChatter = true;
+    bool playChatter1 = true;
+    bool playChatter2 = false;
 
     private void Awake()
     {
@@ -49,10 +51,11 @@ public class MusicController : MonoBehaviour
     public void StartTimer()
     {
         timerIsRunning = true;
-        if (playChatter)
+        if (playChatter1)
         {
-            audiosource.PlayOneShot(policeChatter);
-            playChatter = false;
+            Debug.Log("play chatter");
+            policeChatter.PlayOneShot(radioClip);
+            playChatter1 = false;
         }
 
     }
@@ -72,6 +75,7 @@ public class MusicController : MonoBehaviour
                     {
                         playCalm = false;
                         playWorried = true;
+                        policeChatter.PlayOneShot(radioClip2);
                         AssignNewClip(worriedMusic);
                     }
                 }
@@ -95,11 +99,11 @@ public class MusicController : MonoBehaviour
     public void StopTimer()
     {
         timerIsRunning = false;
-        audiosource.Stop();
+        audioSource.Stop();
     }
     void AssignNewClip(AudioClip newClip)
     {
-        audiosource.clip = newClip;
-        audiosource.Play();
+        audioSource.clip = newClip;
+        audioSource.Play();
     }
 }
