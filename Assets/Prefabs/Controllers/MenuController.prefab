@@ -47,3 +47,4 @@ MonoBehaviour:
   playerHUD: {fileID: 3149342945758385727, guid: 84c634d2a55f6804faa1ad84d5982dd6, type: 3}
   gameOverCanvas: {fileID: 4621329640674789215, guid: 1f63d80735d8bd1448cdf088b3fcfc87, type: 3}
   creditsCanvas: {fileID: 8376267283990386725, guid: 55fb499adc6db584a93529708e26de99, type: 3}
+  failureCanvas: {fileID: 0}

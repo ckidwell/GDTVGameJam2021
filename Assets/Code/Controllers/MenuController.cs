@@ -15,7 +15,9 @@ public class MenuController : MonoBehaviour
     private GameObject gameOverCanvas;
     [SerializeField]
     private GameObject creditsCanvas;
-
+    [SerializeField]
+    private GameObject failureCanvas;
+    
     private GameController gameController;
     private TMP_Text scoreText;
     private GameObject playerLeaveButton;
@@ -25,13 +27,15 @@ public class MenuController : MonoBehaviour
         MAIN,
         HUD,
         GAMEOVER,
-        CREDITS
+        CREDITS,
+        FAILURE
     }
     void Start()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
         mainMenuCanvas = Instantiate(mainMenuCanvas);
         playerHUD = Instantiate(playerHUD);
+        failureCanvas = Instantiate(failureCanvas);
         playerLeaveButton = playerHUD.transform.Find("LeaveStoreButton").gameObject;
         playerExitButton = playerHUD.transform.Find("ExitButton").gameObject;
         scoreText =playerHUD.transform.Find("HUDBAR/ScoreText").gameObject.GetComponentInChildren<TMP_Text>();
@@ -64,6 +68,7 @@ public class MenuController : MonoBehaviour
         playerHUD.SetActive(false);
         gameOverCanvas.SetActive(false);
         creditsCanvas.SetActive(false);
+        failureCanvas.SetActive(false);
         switch (type)
         {
             case MenuType.MAIN:
@@ -78,11 +83,18 @@ public class MenuController : MonoBehaviour
             case MenuType.CREDITS:
                 creditsCanvas.SetActive(true);
                 break;
+            case MenuType.FAILURE:
+                failureCanvas.SetActive(true);
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, "This is impossible! How can a switch statement based on the enum fall outside of its own enumerated values?!");
         }
     }
 
+    public void LoseGame()
+    {
+        ShowMenu(MenuType.FAILURE);
+    }
     public void GameOver()
     {
         ShowMenu(MenuType.GAMEOVER);

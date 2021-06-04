@@ -243,7 +243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Some Status  message here.
+  m_text: All that glistens is not gold..
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d02abcf63128c14bb26977c072471f0, type: 2}
   m_sharedMaterial: {fileID: -7836293164008488451, guid: 2d02abcf63128c14bb26977c072471f0, type: 2}
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.6
+  m_fontSize: 31.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

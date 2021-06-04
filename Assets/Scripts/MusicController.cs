@@ -87,7 +87,7 @@ public class MusicController : MonoBehaviour
             }
             else
             {
-                gamecontroller.GameOver();
+                gamecontroller.PlayerCaught();
             }
         }
     }

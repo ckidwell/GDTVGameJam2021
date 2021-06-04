@@ -78,6 +78,8 @@ public class GameController : MonoBehaviour
 
     public void PlayerCaught()
     {
+        if (playerCaught)
+            return;
         playerCaught = true;
         CheckGameOverStatus();
     }
@@ -219,7 +221,7 @@ public class GameController : MonoBehaviour
                 _menuController.GameOver();
                 break;
             case ActivityType.LOSS:
-                _menuController.GameOver();
+                _menuController.LoseGame();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, "somehow you managed to pass in an invalid activity type");
@@ -377,8 +379,12 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        // do what is needed to summarize the end game results 
-        SetActivity(ActivityType.LOSS);
+        if (playerCaught)
+        {
+            SetActivity(ActivityType.LOSS);
+            return;
+        }
+            SetActivity(ActivityType.WIN);
     }
 
     public void LootItem(Jewelry jewelry)
