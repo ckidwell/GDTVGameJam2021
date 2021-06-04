@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class MusicController : MonoBehaviour
 {
-    AudioSource audiosource;
+    GameController gamecontroller;
+
+    [SerializeField] AudioSource audiosource;
+    //[SerializeField] AudioSource policeChatter;
     
     [SerializeField] float timeRemaining = 120;
     [SerializeField] float timeToStartWorriedClip = 60;
@@ -14,10 +17,13 @@ public class MusicController : MonoBehaviour
     [SerializeField] AudioClip calmMusic;
     [SerializeField] AudioClip worriedMusic;
     [SerializeField] AudioClip stressedMusic;
+    [SerializeField] AudioClip policeChatter;
 
     bool playCalm = true;
     bool playWorried = false;
     bool playStressed = false;
+
+    bool playChatter = true;
 
     private void Awake()
     {
@@ -37,12 +43,18 @@ public class MusicController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audiosource = GetComponent<AudioSource>();
+        gamecontroller = FindObjectOfType<GameController>();
     }
 
     public void StartTimer()
     {
         timerIsRunning = true;
+        if (playChatter)
+        {
+            audiosource.PlayOneShot(policeChatter);
+            playChatter = false;
+        }
+
     }
 
     // Update is called once per frame
@@ -74,7 +86,7 @@ public class MusicController : MonoBehaviour
             }
             else
             {
-                //Player is caught
+                gamecontroller.GameOver();
             }
         }
     }
