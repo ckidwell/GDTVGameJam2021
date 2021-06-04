@@ -196,7 +196,7 @@ public class GameController : MonoBehaviour
         if (myStore != null)
             myStore.playerInside = false;
         
-        musicController.StopTimer();
+        //musicController.StopTimer();
         currentStoreName = StoreName.NONE;
        
         _menuController.HudShowExitOrLeaveButton(true);

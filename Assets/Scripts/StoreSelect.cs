@@ -28,7 +28,7 @@ public class StoreSelect : MonoBehaviour
             else
             {
                 // leave the store
-                gameController.LeaveStore();
+                //gameController.LeaveStore();
                 camAnim.SetTrigger("BackToDefault");
                 camAnim.SetBool("StoreFramed", false);
                 camAnim.SetBool("LockFramed", false);

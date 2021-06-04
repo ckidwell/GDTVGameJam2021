@@ -34,8 +34,8 @@ public class CameraMovement : MonoBehaviour
             transform.Translate(new Vector3(xAxisValue*moveSpeed*Time.deltaTime, 0.0f, 0.0f));
 
             if (transform.position.x < 800)
-                transform.position = new Vector3(778, transform.position.y, transform.position.z);
-            if(transform.position.x > 1140)
+                transform.position = new Vector3(800, transform.position.y, transform.position.z);
+            if(transform.position.x > 1119)
                 transform.position = new Vector3(1119, transform.position.y, transform.position.z);
         }
 
