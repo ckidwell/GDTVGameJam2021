@@ -45,14 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0743755e001f1b249a06675835468380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audiosource: {fileID: 1177144867}
+  audioSource: {fileID: 6543559443705132110}
+  policeChatter: {fileID: 1177144867}
   timeRemaining: 180
   timeToStartWorriedClip: 60
   timeToStartStressedClip: 10
   calmMusic: {fileID: 8300000, guid: 4c1f745a6dfc5114094d062f1c8e58e0, type: 3}
   worriedMusic: {fileID: 8300000, guid: 8beaf90201bb5fc4e86618b8db05fc28, type: 3}
   stressedMusic: {fileID: 8300000, guid: edc94e15a894fd946b4f664c2f797775, type: 3}
-  policeChatter: {fileID: 8300000, guid: 2a4a5991906ca0f4ebb5019075c30d8f, type: 3}
+  radioClip: {fileID: 8300000, guid: 2a4a5991906ca0f4ebb5019075c30d8f, type: 3}
+  radioClip2: {fileID: 8300000, guid: 4335afb4c89f05d4b95363e845b50190, type: 3}
 --- !u!82 &6543559443705132110
 AudioSource:
   m_ObjectHideFlags: 0

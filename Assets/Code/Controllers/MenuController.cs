@@ -20,6 +20,7 @@ public class MenuController : MonoBehaviour
     private TMP_Text scoreText;
     private GameObject playerLeaveButton;
     private GameObject playerExitButton;
+    private GameObject playerGetawayButton;
     public enum MenuType
     {
         MAIN,
@@ -34,6 +35,7 @@ public class MenuController : MonoBehaviour
         playerHUD = Instantiate(playerHUD);
         playerLeaveButton = playerHUD.transform.Find("LeaveStoreButton").gameObject;
         playerExitButton = playerHUD.transform.Find("ExitButton").gameObject;
+        playerGetawayButton = playerHUD.transform.Find("GetawayButton").gameObject;
         scoreText =playerHUD.transform.Find("HUDBAR/ScoreText").gameObject.GetComponentInChildren<TMP_Text>();
         gameOverCanvas =  Instantiate(gameOverCanvas);
         creditsCanvas =  Instantiate(creditsCanvas);
@@ -44,6 +46,7 @@ public class MenuController : MonoBehaviour
     {
         playerLeaveButton.SetActive(!showExit);
         playerExitButton.SetActive(showExit);
+        playerGetawayButton.SetActive(showExit);
         
     }
     public void SetScore(string val)
