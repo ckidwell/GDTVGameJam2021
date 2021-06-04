@@ -64,6 +64,7 @@ public class MusicController : MonoBehaviour
         {
             if (timeRemaining > 0)
             {
+                
                 timeRemaining -= Time.deltaTime;
                 if (timeRemaining < timeToStartWorriedClip && timeRemaining > timeToStartStressedClip)
                 {
@@ -91,6 +92,11 @@ public class MusicController : MonoBehaviour
         }
     }
 
+    public void StopTimer()
+    {
+        timerIsRunning = false;
+        audiosource.Stop();
+    }
     void AssignNewClip(AudioClip newClip)
     {
         audiosource.clip = newClip;

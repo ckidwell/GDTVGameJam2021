@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 {
     private MenuController _menuController;
     private CameraController cameraController;
+    private MusicController musicController;
     public GameObject goldLock;
     public GameObject silverLock;
     public GameObject copperLock;
@@ -52,6 +53,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        musicController = GameObject.Find("MusicPlayer").GetComponent<MusicController>();
         cameraController = GameObject.Find("Camera Controller").GetComponent<CameraController>();
         _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
         uiJewelryStore = GameObject.Find("JewelryStore").GetComponent<UIJewelryStore>();
@@ -112,8 +114,9 @@ public class GameController : MonoBehaviour
             _menuController.SetScore(score.ToString());
             go.GetComponent<TMP_Text>().text = "going back is a sure way to get caught...";
             return;
-        } 
-        
+        }
+
+        myStore.playerInside = true;
         SpawnLockOfType(LockTypes.DOOR);
         SetActivity(ActivityType.LOCKPICKING);
     }
@@ -170,7 +173,13 @@ public class GameController : MonoBehaviour
 
     public void LeaveStore()
     {
+        var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
+        if (myStore != null)
+            myStore.playerInside = false;
+        
+        musicController.StopTimer();
         currentStoreName = StoreName.NONE;
+       
         _menuController.HudShowExitOrLeaveButton(true);
         SetActivity(ActivityType.CITY);
     }
