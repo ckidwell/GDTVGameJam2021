@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -12,29 +10,13 @@ public class CameraController : MonoBehaviour
 
     //Serialized for testing
     [SerializeField] bool playerInsideStore = false;
-
     
-    // Start is called before the first frame update
     void Start()
     {
         outsideCam.SetActive(true);
         insideCam.SetActive(false);
         lockPickingCam.SetActive(false);
     }
-
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     if(playerInsideStore)
-    //     {
-    //         outsideCam.SetActive(false);
-    //         insideCam.SetActive(true);
-    //     }else
-    //     {
-    //         outsideCam.SetActive(true);
-    //         insideCam.SetActive(false);
-    //     }
-    // }
 
     public void SetActiveCamera(CameraActive camToSetActive)
     {

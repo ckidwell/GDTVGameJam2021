@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour
     // variables to store state of what store we are attempting
     private Stores allStores;
     private GameObject currentlock;
+    private GameObject lockpick;
     private StoreName currentStoreName;
     private int currentlyPickingCaseNumber = -1;
 
@@ -58,6 +59,7 @@ public class GameController : MonoBehaviour
         _menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
         uiJewelryStore = GameObject.Find("JewelryStore").GetComponent<UIJewelryStore>();
         cameraController.SetActiveCamera(CameraActive.OUTSIDE);
+        lockpick = GameObject.Find("LOCK_PICK");
        
         SetActivity(ActivityType.CITY);
     }
@@ -97,6 +99,11 @@ public class GameController : MonoBehaviour
     {
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         if (myStore != null) myStore.alarmTriggered = true;
+    }
+
+    public void LeaveDoorWay()
+    {
+        currentStoreName = StoreName.NONE;
     }
     public void PickDoor(StoreName name)
     {
@@ -148,6 +155,7 @@ public class GameController : MonoBehaviour
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         if (myStore != null)
             myStore.boxes[currentlyPickingCaseNumber].isOpen = true;
+        ResetLockPick();
         Destroy(currentlock);
         cameraController.SetActiveCamera(CameraActive.INSIDE);
         jewelryStoreGO.SetActive(true);
@@ -168,6 +176,7 @@ public class GameController : MonoBehaviour
         myStore.visited = true;
         _menuController.HudShowExitOrLeaveButton(false);
         Destroy(currentlock);
+        ResetLockPick();
         SetActivity(ActivityType.STORE);
     }
 
@@ -206,6 +215,7 @@ public class GameController : MonoBehaviour
                 lockPickingGO.SetActive(true);
                 break;
             case ActivityType.WIN:
+                _menuController.GameOver();
                 break;
             case ActivityType.LOSS:
                 _menuController.GameOver();
@@ -224,6 +234,10 @@ public class GameController : MonoBehaviour
         DestroyChildrenImmediately(uiJewelryStore.table5Anchor);
     }
 
+    private void ResetLockPick()
+    {
+        lockpick.transform.localPosition = new Vector3(-8.6f, .079f, 0.05f);
+    }
     public static void DestroyChildrenImmediately(GameObject go)
     {
 
