@@ -255,42 +255,42 @@ public class GameController : MonoBehaviour
     {
         DeleteOldTables();
         var insideStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
-        GameObject go = null;
         if (insideStore == null)
             return;
         for (var i = 0; i < insideStore.boxes.Length; i++)
         {
-            go = Instantiate(insideStore.boxes[i].size == JewelryBoxSizes.SMALL
-                ? smallJewelryTable
-                : largeJewelryTable);
-            go.name = "table";
             switch (i)
             {
                 case 1:
-                    LoadTableInStore(go, i, insideStore,uiJewelryStore.table1Anchor.transform);
+                    LoadTableInStore(i, insideStore,uiJewelryStore.table1Anchor.transform);
                     break;
                 case 2:
-                    LoadTableInStore(go, i, insideStore,uiJewelryStore.table2Anchor.transform );
+                    LoadTableInStore(i, insideStore,uiJewelryStore.table2Anchor.transform );
                     break;
                 case 3:
-                    LoadTableInStore(go, i, insideStore,uiJewelryStore.table3Anchor.transform );
+                    LoadTableInStore(i, insideStore,uiJewelryStore.table3Anchor.transform );
                     break;
                 case 4:
-                    LoadTableInStore(go, i, insideStore,uiJewelryStore.table4Anchor.transform );
+                    LoadTableInStore(i, insideStore,uiJewelryStore.table4Anchor.transform );
                     break;
                 case 5:
-                    LoadTableInStore(go, i, insideStore,uiJewelryStore.table5Anchor.transform );
+                    LoadTableInStore(i, insideStore,uiJewelryStore.table5Anchor.transform );
                     break;
             }
         }
         uiJewelryStore.GetLidsAndGemColliders();
+        uiJewelryStore.DisableAllGemColliders();
         insideStore.locked = false;
     }
 
-    private void LoadTableInStore(GameObject go, int i, InsideStore insideStore, Transform t)
+    private void LoadTableInStore(int i, InsideStore insideStore, Transform t)
     {
-        go.transform.parent = t;
+        var go = Instantiate(insideStore.boxes[i].size == JewelryBoxSizes.SMALL
+            ? smallJewelryTable
+            : largeJewelryTable, t);
+        // go.transform.parent = t;
         go.transform.position = t.position;
+        go.name = "table" + i;
         var jewelLock = go.GetComponentInChildren<JewelLock>();
         jewelLock.caseNumber = i;
         PopulateJewelryInJewelryTable(go, insideStore, i);
