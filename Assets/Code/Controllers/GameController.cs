@@ -354,7 +354,7 @@ public class GameController : MonoBehaviour
     }
     public void SpawnLockOfType(LockTypes type)
     {
-        var spawnPosition = new Vector3(-56, 0.0f, 0);
+        var spawnPosition = new Vector3(-56.797f, 0.0f, 0);
         switch (type)
         {
             case LockTypes.DOOR:
