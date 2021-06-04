@@ -11,6 +11,6 @@ public class ExitButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        // dont give a rat butt but Unity forces me to implement this to see the OnPointerUp
+        // dont give a rat butt but Unity forces me to implement this to see the OnPointerUpa
     }
 }

@@ -102,6 +102,11 @@ public class GameController : MonoBehaviour
     }
     public void PickDoor(StoreName name)
     {
+        Debug.Log("Calling pick front door");
+        if (currentStoreName != StoreName.NONE)
+            return;
+        
+        Debug.Log("proceeding in  pick front door");
         currentStoreName = name;
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         if (myStore != null && myStore.visited)
@@ -162,8 +167,16 @@ public class GameController : MonoBehaviour
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         if (myStore != null) myStore.locked = false;
         myStore.visited = true;
+        _menuController.HudShowExitOrLeaveButton(false);
         Destroy(currentlock);
         SetActivity(ActivityType.STORE);
+    }
+
+    public void LeaveStore()
+    {
+        currentStoreName = StoreName.NONE;
+        _menuController.HudShowExitOrLeaveButton(true);
+        SetActivity(ActivityType.CITY);
     }
     public void SetActivity(ActivityType type)
     {
@@ -197,8 +210,31 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void DeleteOldTables()
+    {
+        DestroyChildrenImmediately(uiJewelryStore.table1Anchor);
+        DestroyChildrenImmediately(uiJewelryStore.table2Anchor);
+        DestroyChildrenImmediately(uiJewelryStore.table3Anchor);
+        DestroyChildrenImmediately(uiJewelryStore.table4Anchor);
+        DestroyChildrenImmediately(uiJewelryStore.table5Anchor);
+    }
+
+    public static void DestroyChildrenImmediately(GameObject go)
+    {
+
+        if (go != null)
+        {
+            Transform goTransform = go.transform;
+            foreach (Transform child in goTransform)
+            {
+                GameObject.DestroyImmediate(child.gameObject);
+            }
+        }
+
+    }
     private void LoadStore()
     {
+        DeleteOldTables();
         var insideStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         GameObject go = null;
         if (insideStore == null)
@@ -313,6 +349,7 @@ public class GameController : MonoBehaviour
         score = 0;
         gameOver = false;
         playerCaught = false;
+        _menuController.HudShowExitOrLeaveButton(true);
         _menuController.SetScore(score.ToString());
         currentStoreName = StoreName.NONE;
         allStores = new Stores();

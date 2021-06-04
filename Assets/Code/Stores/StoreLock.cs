@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StoreLock : MonoBehaviour
@@ -11,6 +9,5 @@ public class StoreLock : MonoBehaviour
     private void OnMouseDown()
     {
         OnPickDoor(storeName);
-        Debug.Log("You would have gone to a lock pick UI now for store: " + storeName);
     }
 }
