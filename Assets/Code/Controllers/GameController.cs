@@ -293,6 +293,7 @@ public class GameController : MonoBehaviour
         go.name = "table" + i;
         var jewelLock = go.GetComponentInChildren<JewelLock>();
         jewelLock.caseNumber = i;
+        jewelLock.lockType = insideStore.boxes[i].lockType;
         PopulateJewelryInJewelryTable(go, insideStore, i);
     }
     private void PopulateJewelryInJewelryTable(GameObject table, InsideStore store, int tableNum)
