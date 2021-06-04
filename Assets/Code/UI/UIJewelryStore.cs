@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class UIJewelryStore : MonoBehaviour
@@ -101,26 +102,48 @@ public class UIJewelryStore : MonoBehaviour
         switch (boxNumber)
         {
             case 1:
-                ToggleColliders(boxColliders, toggleOn);
+                ToggleColliders(GetGemBoxCollidersForAnchor(table1Anchor), toggleOn);
                 break;
             case 2:
-                ToggleColliders(table2Anchor.GetComponentsInChildren<BoxCollider2D>(), toggleOn);
+                ToggleColliders(GetGemBoxCollidersForAnchor(table2Anchor), toggleOn);
+                //ToggleColliders(table2Anchor.GetComponentsInChildren<BoxCollider2D>(), toggleOn);
                 break;
             case 3:
-                boxColliders = table3Anchor.GetComponentsInChildren<BoxCollider2D>();
+                //boxColliders = table3Anchor.GetComponentsInChildren<BoxCollider2D>();
+                boxColliders = GetGemBoxCollidersForAnchor(table3Anchor);
                 if(boxColliders != null)
                     ToggleColliders(boxColliders, toggleOn);
                 break;
             case 4:
-                boxColliders = table4Anchor.GetComponentsInChildren<BoxCollider2D>();
+                //boxColliders = table4Anchor.GetComponentsInChildren<BoxCollider2D>();
+                boxColliders = GetGemBoxCollidersForAnchor(table4Anchor);
                 if(boxColliders != null)
                     ToggleColliders(boxColliders, toggleOn);
                 break;
             case 5:
-                boxColliders = table5Anchor.GetComponentsInChildren<BoxCollider2D>();
+                boxColliders = GetGemBoxCollidersForAnchor(table5Anchor);
+                //boxColliders = table5Anchor.GetComponentsInChildren<BoxCollider2D>();
                 if(boxColliders != null)
                     ToggleColliders(boxColliders, toggleOn);
                 break;
         }
+    }
+
+    private BoxCollider2D[] GetGemBoxCollidersForAnchor(GameObject anchor)
+    {
+        var jSpots = anchor.GetComponentsInChildren<JSpot>();
+        List<GameObject> obs = new List<GameObject>();
+        foreach (var jewelrySpot in jSpots)
+        {
+            obs.Add(jewelrySpot.gameObject);
+        }
+
+        HashSet<BoxCollider2D> boxCollider2Ds = new HashSet<BoxCollider2D>();
+        foreach (GameObject o in obs)
+        {
+            boxCollider2Ds.Add(o.GetComponent<BoxCollider2D>());
+        }
+
+        return boxCollider2Ds.ToArray();
     }
 }
