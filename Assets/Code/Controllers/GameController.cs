@@ -103,9 +103,16 @@ public class GameController : MonoBehaviour
         if (myStore != null) myStore.alarmTriggered = true;
     }
 
+
     public void LeaveDoorWay()
     {
+        Debug.Log("calling leave doorway");
         currentStoreName = StoreName.NONE;
+        _menuController.ShowGetAwayButton();
+        _menuController.HudShowExitOrLeaveButton(true);
+        Destroy(currentlock);
+        ResetLockPick();
+        SetActivity(ActivityType.CITY);
     }
     public void PickDoor(StoreName name)
     {
@@ -115,6 +122,7 @@ public class GameController : MonoBehaviour
         
         Debug.Log("proceeding in  pick front door");
         currentStoreName = name;
+        _menuController.HideHUDButtonsWhilePicking();
         var myStore = allStores.stores.FirstOrDefault(s => s.name == currentStoreName);
         if (myStore != null && myStore.visited)
         {
@@ -192,6 +200,7 @@ public class GameController : MonoBehaviour
         currentStoreName = StoreName.NONE;
        
         _menuController.HudShowExitOrLeaveButton(true);
+        _menuController.ShowGetAwayButton();
         SetActivity(ActivityType.CITY);
         CheckGameOverStatus();
     }
