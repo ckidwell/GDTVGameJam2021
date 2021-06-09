@@ -248,7 +248,7 @@ public class GameController : MonoBehaviour
 
     private void ResetLockPick()
     {
-        lockpick.transform.localPosition = new Vector3(-8.6f, .079f, 0.05f);
+        lockpick.transform.localPosition = new Vector3(-8.9f, .079f, 0.05f);
     }
     public static void DestroyChildrenImmediately(GameObject go)
     {
