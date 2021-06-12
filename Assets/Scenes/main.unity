@@ -310,10 +310,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LockPicking
       objectReference: {fileID: 0}
-    - target: {fileID: 780479071443547320, guid: f2d4c48d9eda5464f8a346b4257dad4a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 780479071443547321, guid: f2d4c48d9eda5464f8a346b4257dad4a, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1013,6 +1009,10 @@ PrefabInstance:
     - target: {fileID: 6543559443705132109, guid: fcd11a35008496144bb412e64d74c8ca, type: 3}
       propertyPath: m_Name
       value: MusicPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6543559443705132111, guid: fcd11a35008496144bb412e64d74c8ca, type: 3}
+      propertyPath: timeRemaining
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd11a35008496144bb412e64d74c8ca, type: 3}

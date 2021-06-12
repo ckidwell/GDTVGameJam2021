@@ -43,7 +43,13 @@ public class MusicController : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
+    public void Reset()
+    {
+        StopTimer();
+        timeRemaining = 120;
+        
+    }
+
     void Start()
     {
         gamecontroller = FindObjectOfType<GameController>();

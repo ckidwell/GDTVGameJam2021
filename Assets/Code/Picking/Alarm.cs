@@ -41,4 +41,11 @@ public class Alarm : MonoBehaviour
         greenLight.SetActive(false);
         alarmLight.color = red;
     }
+
+    public void ResetAlarm()
+    {
+        redLight.SetActive(false);
+        greenLight.SetActive(true);
+        alarmLight.color = green;
+    }
 }

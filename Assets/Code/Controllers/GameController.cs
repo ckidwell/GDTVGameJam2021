@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
     private GameObject lockpick;
     private StoreName currentStoreName;
     private int currentlyPickingCaseNumber = -1;
-
+    private Alarm alarm;
     void Start()
     {
         musicController = GameObject.Find("MusicPlayer").GetComponent<MusicController>();
@@ -60,6 +60,7 @@ public class GameController : MonoBehaviour
         uiJewelryStore = GameObject.Find("JewelryStore").GetComponent<UIJewelryStore>();
         cameraController.SetActiveCamera(CameraActive.OUTSIDE);
         lockpick = GameObject.Find("LOCK_PICK");
+        alarm = GameObject.Find("LockPicking").GetComponentInChildren<Alarm>();
        
         SetActivity(ActivityType.CITY);
     }
@@ -248,7 +249,7 @@ public class GameController : MonoBehaviour
 
     private void ResetLockPick()
     {
-        lockpick.transform.localPosition = new Vector3(-8.9f, .079f, 0.05f);
+        lockpick.transform.localPosition = new Vector3(-9.9f, .079f, 0.05f);
     }
     public static void DestroyChildrenImmediately(GameObject go)
     {
@@ -354,6 +355,7 @@ public class GameController : MonoBehaviour
     }
     public void SpawnLockOfType(LockTypes type)
     {
+        ResetLockPick();
         var spawnPosition = new Vector3(-56.797f, 0.0f, 0);
         switch (type)
         {
@@ -377,6 +379,8 @@ public class GameController : MonoBehaviour
     public void StartNewGame()
     {
         // do whatever is needed to setup a new game sequence
+        Destroy(currentlock);
+        ResetLockPick();
         score = 0;
         gameOver = false;
         playerCaught = false;
@@ -384,6 +388,10 @@ public class GameController : MonoBehaviour
         _menuController.SetScore(score.ToString());
         currentStoreName = StoreName.NONE;
         allStores = new Stores();
+        SetActivity(ActivityType.CITY);
+        
+        alarm.ResetAlarm();
+        musicController.Reset();
     }
 
     public void GameOver()

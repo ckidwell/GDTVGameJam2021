@@ -52,6 +52,7 @@ public class MenuController : MonoBehaviour
     {
         playerLeaveButton.SetActive(!showExit);
         playerExitButton.SetActive(showExit);
+        // buggy always set to false for now
         playerLeaveDoorButton.SetActive(false);
     }
 
@@ -91,6 +92,7 @@ public class MenuController : MonoBehaviour
                 mainMenuCanvas.SetActive(true);
                 break;
             case MenuType.HUD:
+                ShowGetAwayButton();
                 playerHUD.SetActive(true);
                 break;
             case MenuType.GAMEOVER:
